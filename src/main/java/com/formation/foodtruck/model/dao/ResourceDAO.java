@@ -1,9 +1,8 @@
 package com.formation.foodtruck.model.dao;
 
-import java.util.List;
-
 import com.formation.foodtruck.model.entity.Resource;
 
+import java.util.List;
 
 public interface ResourceDAO extends DAO<Resource>{
 
@@ -12,6 +11,5 @@ public interface ResourceDAO extends DAO<Resource>{
 	 *
 	 * @return the list
 	 */
-	List<Resource> findAllGear();
-	List<Resource> findAllIngredient();
+	List<Resource> findAll();
 }

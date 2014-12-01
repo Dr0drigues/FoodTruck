@@ -1,8 +1,8 @@
 package com.formation.foodtruck.model.dao;
 
-import java.util.List;
-
 import com.formation.foodtruck.model.entity.CommandLine;
+
+import java.util.List;
 
 public interface CommandLineDAO extends DAO<CommandLine> {
 

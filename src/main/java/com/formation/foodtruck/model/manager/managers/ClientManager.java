@@ -2,6 +2,7 @@ package com.formation.foodtruck.model.manager.managers;
 
 import com.formation.foodtruck.model.entity.Client;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -24,7 +25,7 @@ public interface ClientManager {
      * @return the seeked client
      * @see Client
      */
-    public Client getClient(Integer id);
+    public Client getClient(Integer id) throws SQLException;
 
     /**
      * Method to return all the clients on the DB

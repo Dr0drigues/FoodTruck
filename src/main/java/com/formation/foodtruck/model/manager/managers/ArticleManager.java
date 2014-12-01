@@ -3,7 +3,7 @@ package com.formation.foodtruck.model.manager.managers;
 import com.formation.foodtruck.model.entity.Drink;
 import com.formation.foodtruck.model.entity.Meal;
 
-import java.util.List;
+import java.sql.SQLException;
 
 /**
  * The interface ArticleManager.
@@ -34,7 +34,7 @@ public interface ArticleManager {
      * @return the seeked drink
      * @see Drink
      */
-    public Drink getDrink(Integer id);
+    public Drink getDrink(Integer id) throws SQLException;
 
     /**
      * Method to return a seeked meal
@@ -43,7 +43,7 @@ public interface ArticleManager {
      * @return the seeked meal
      * @see Meal
      */
-    public Meal getMeal(Integer id);
+    public Meal getMeal(Integer id) throws SQLException;
 
     /**
      * Method to return all the drinks on the DB
@@ -51,7 +51,7 @@ public interface ArticleManager {
      * @return the List of all drinks
      * @see java.util.List
      */
-    public List<Drink> getDrinkList();
+    // public List<Drink> getDrinkList();
 
     /**
      * Method to return all the meals on the DB
@@ -59,7 +59,7 @@ public interface ArticleManager {
      * @return the List of all meals
      * @see java.util.List
      */
-    public List<Meal> getMealList();
+    //public List<Meal> getMealList();
 
     /**
      * Method to update a drink information

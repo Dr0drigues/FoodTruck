@@ -1,0 +1,6 @@
+.navbar-inner {
+    background: #ffffff url("../../img/banner.png");
+    /*height: 1080px;
+    width: 80px;*/
+    background-size: auto;
+}
