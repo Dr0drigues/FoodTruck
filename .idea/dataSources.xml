@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="3808876405">
+    <data-source source="LOCAL" name="PostgreSQL - foodtruck@localhost" uuid="2d1cec8d-b437-4515-a3ce-1f0e4a7b7c33">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/foodtruck</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>
