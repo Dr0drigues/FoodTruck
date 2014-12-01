@@ -84,5 +84,4 @@ public abstract class Article {
 	public void setPrice(Float price) {
 		this.price = price;
 	}
-
 }
