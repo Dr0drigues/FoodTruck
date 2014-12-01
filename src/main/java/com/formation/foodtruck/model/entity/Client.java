@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Client {
+
 	private Integer id;
 	private String lastName;
 	private String firstName;
