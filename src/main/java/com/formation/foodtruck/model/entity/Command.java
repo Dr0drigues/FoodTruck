@@ -7,15 +7,30 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 /**
  * @author Administrateur
  *
  */
+@Entity
 public class Command {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	private Date withdrawal;
 
-	private final List<CommandLine> listCommandLine = new ArrayList<CommandLine>();
+	@ManyToOne
+	private Client client;
+
+	@OneToMany(mappedBy = "command", cascade = CascadeType.PERSIST)
+	private List<CommandLine> listCommandLine = new ArrayList<CommandLine>();
 
 	/**
 	 * @return the id
@@ -52,6 +67,29 @@ public class Command {
 	 */
 	public List<CommandLine> getListCommandLine() {
 		return listCommandLine;
+	}
+
+	/**
+	 * @return the client
+	 */
+	public Client getClient() {
+		return client;
+	}
+
+	/**
+	 * @param client
+	 *            the client to set
+	 */
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	/**
+	 * @param listCommandLine
+	 *            the listCommandLine to set
+	 */
+	public void setListCommandLine(List<CommandLine> listCommandLine) {
+		this.listCommandLine = listCommandLine;
 	}
 
 	/**

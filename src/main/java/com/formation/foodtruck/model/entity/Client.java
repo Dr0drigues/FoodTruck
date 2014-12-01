@@ -3,14 +3,26 @@ package com.formation.foodtruck.model.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.management.BadAttributeValueExpException;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Client {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	private String lastName;
 	private String firstName;
 	private String mail;
 	private String password;
 
+	@OneToMany(mappedBy = "client", cascade = CascadeType.PERSIST)
 	private List<Command> listCommand = new ArrayList<Command>();
 
 	public Client() {
@@ -18,11 +30,19 @@ public class Client {
 	}
 
 	public Client(String lastName, String firstName, String mail,
-			String password) {
+			String password) throws BadAttributeValueExpException {
 		super();
+		if (lastName == null || lastName.isEmpty())
+			throw new BadAttributeValueExpException("lastName non renseigné");
 		this.lastName = lastName;
+		if (firstName == null || firstName.isEmpty())
+			throw new BadAttributeValueExpException("firstName non renseigné");
 		this.firstName = firstName;
+		if (mail == null || mail.isEmpty())
+			throw new BadAttributeValueExpException("mail non renseigné");
 		this.mail = mail;
+		if (password == null || password.isEmpty())
+			throw new BadAttributeValueExpException("password non renseigné");
 		this.password = password;
 	}
 
@@ -37,7 +57,9 @@ public class Client {
 	 * @param id
 	 *            the id to set
 	 */
-	public void setId(Integer id) {
+	public void setId(Integer id) throws BadAttributeValueExpException {
+		if (id == null)
+			throw new BadAttributeValueExpException("Id invalide");
 		this.id = id;
 	}
 
@@ -52,7 +74,10 @@ public class Client {
 	 * @param lastName
 	 *            the lastName to set
 	 */
-	public void setLastName(String lastName) {
+	public void setLastName(String lastName)
+			throws BadAttributeValueExpException {
+		if (lastName == null || lastName.isEmpty())
+			throw new BadAttributeValueExpException("lastName invalide");
 		this.lastName = lastName;
 	}
 
@@ -67,7 +92,10 @@ public class Client {
 	 * @param firstName
 	 *            the firstName to set
 	 */
-	public void setFirstName(String firstName) {
+	public void setFirstName(String firstName)
+			throws BadAttributeValueExpException {
+		if (firstName == null || firstName.isEmpty())
+			throw new BadAttributeValueExpException("firstName invalide");
 		this.firstName = firstName;
 	}
 
@@ -82,7 +110,9 @@ public class Client {
 	 * @param mail
 	 *            the mail to set
 	 */
-	public void setMail(String mail) {
+	public void setMail(String mail) throws BadAttributeValueExpException {
+		if (mail == null || mail.isEmpty())
+			throw new BadAttributeValueExpException("mail invalide");
 		this.mail = mail;
 	}
 
@@ -97,7 +127,10 @@ public class Client {
 	 * @param password
 	 *            the password to set
 	 */
-	public void setPassword(String password) {
+	public void setPassword(String password)
+			throws BadAttributeValueExpException {
+		if (password == null || password.isEmpty())
+			throw new BadAttributeValueExpException("password invalide");
 		this.password = password;
 	}
 

@@ -3,10 +3,13 @@
  */
 package com.formation.foodtruck.model.entity;
 
+import javax.persistence.Entity;
+
 /**
  * @author Administrateur
  *
  */
+@Entity
 public class Ingredient extends Resource {
 
 	private TypeIngredient type;

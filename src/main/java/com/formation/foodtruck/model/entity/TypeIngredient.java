@@ -3,6 +3,7 @@
  */
 package com.formation.foodtruck.model.entity;
 
+
 /**
  * @author Administrateur
  *
