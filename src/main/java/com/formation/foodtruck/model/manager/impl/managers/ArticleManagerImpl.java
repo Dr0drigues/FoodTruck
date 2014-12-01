@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.SQLException;
-import java.util.List;
 
 /**
  * Created by Timmy Parkwayd on 01/12/2014.
@@ -68,16 +67,17 @@ public class ArticleManagerImpl implements ArticleManager {
         return (Meal) articleDAO.find(id);
     }
 
-    @Override
+    /*@Override
     @Transactional(readOnly = false)
     public List<Drink> getDrinkList() {
         return articleDAO.findAllDrink();
     }
 
     @Override
+    @Transactional(readOnly = false)
     public List<Meal> getMealList() {
         return articleDAO.findAllMeal();
-    }
+    }*/
 
     @Override
     @Transactional(readOnly = false)

@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.SQLException;
-import java.util.List;
 
 /**
  * Created by Timmy Parkwayd on 01/12/2014.
@@ -68,16 +67,17 @@ public class ResourceManagerImpl implements ResourceManager {
         return (Gear) resourceDAO.find(id);
     }
 
-    @Override
+  /*  @Override
     @Transactional(readOnly = false)
     public List<Ingredient> getIngredientList() {
         return resourceDAO.findAllIngredient();
     }
 
     @Override
+    @Transactional(readOnly = false)
     public List<Gear> getGearList() {
         return resourceDAO.findAllGear();
-    }
+    }*/
 
     @Override
     @Transactional(readOnly = false)

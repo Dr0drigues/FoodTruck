@@ -4,7 +4,6 @@ import com.formation.foodtruck.model.entity.Gear;
 import com.formation.foodtruck.model.entity.Ingredient;
 
 import java.sql.SQLException;
-import java.util.List;
 
 /**
  * The interface ResourceManager.
@@ -52,7 +51,7 @@ public interface ResourceManager {
      * @return the List of all gears
      * @see java.util.List
      */
-    public List<Gear> getGearList();
+    // public List<Gear> getGearList();
 
     /**
      * Method to return all the ingredients on the DB
@@ -60,7 +59,7 @@ public interface ResourceManager {
      * @return the List of all ingredients
      * @see java.util.List
      */
-    public List<Ingredient> getIngredientList();
+    // public List<Ingredient> getIngredientList();
 
     /**
      * Method to update a gear information

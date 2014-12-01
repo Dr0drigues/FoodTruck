@@ -11,6 +11,9 @@
     <title></title>
 </head>
 <body>
+<header>
+  <jsp:include page="WEB-INF/view/include/header.jsp"/>
+</header>
 
 </body>
 </html>
