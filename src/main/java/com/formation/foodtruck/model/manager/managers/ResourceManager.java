@@ -3,6 +3,7 @@ package com.formation.foodtruck.model.manager.managers;
 import com.formation.foodtruck.model.entity.Gear;
 import com.formation.foodtruck.model.entity.Ingredient;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -34,7 +35,7 @@ public interface ResourceManager {
      * @return the seeked gear
      * @see Gear
      */
-    public Gear getGear(Integer id);
+    public Gear getGear(Integer id) throws SQLException;
 
     /**
      * Method to return a seeked ingredient
@@ -43,7 +44,7 @@ public interface ResourceManager {
      * @return the seeked ingredient
      * @see Ingredient
      */
-    public Ingredient getIngredient(Integer id);
+    public Ingredient getIngredient(Integer id) throws SQLException;
 
     /**
      * Method to return all the gears on the DB

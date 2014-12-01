@@ -2,6 +2,7 @@ package com.formation.foodtruck.model.manager.managers;
 
 import com.formation.foodtruck.model.entity.Command;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -24,7 +25,7 @@ public interface CommandManager {
      * @return the seeked command
      * @see Command
      */
-    public Command getCommand(Integer id);
+    public Command getCommand(Integer id) throws SQLException;
 
     /**
      * Method to return all the commands on the DB
