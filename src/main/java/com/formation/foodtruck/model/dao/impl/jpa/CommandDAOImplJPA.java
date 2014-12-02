@@ -4,13 +4,18 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+
+import org.springframework.stereotype.Repository;
 
 import com.formation.foodtruck.model.dao.CommandDAO;
 import com.formation.foodtruck.model.entity.Command;
 
+@Repository
 public class CommandDAOImplJPA implements CommandDAO{
 
+	@PersistenceContext
 	/**
 	 * Appel de l'entityManager pour intégration en base
 	 */
@@ -55,7 +60,7 @@ public class CommandDAOImplJPA implements CommandDAO{
 		if (cmd == null){
 			return false;
 		}
-		entityManager.persist(cmd);
+		entityManager.merge(cmd);
 		return true;
 	}
 

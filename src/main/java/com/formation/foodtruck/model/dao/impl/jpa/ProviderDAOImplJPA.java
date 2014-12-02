@@ -3,13 +3,17 @@ package com.formation.foodtruck.model.dao.impl.jpa;
 import java.sql.SQLException;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Repository;
 
 import com.formation.foodtruck.model.dao.ProviderDAO;
 import com.formation.foodtruck.model.entity.Provider;
 
+@Repository
 public class ProviderDAOImplJPA implements ProviderDAO{
 
-
+	@PersistenceContext
 	/**
 	 * Appel de l'entityManager pour intégration en base
 	 */
@@ -53,7 +57,7 @@ public class ProviderDAOImplJPA implements ProviderDAO{
 		if (provider == null){
 			return false;
 		}
-		entityManager.persist(provider);
+		entityManager.merge(provider);
 		return true;
 	}
 

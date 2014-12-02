@@ -4,13 +4,18 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+
+import org.springframework.stereotype.Repository;
 
 import com.formation.foodtruck.model.dao.CommandLineDAO;
 import com.formation.foodtruck.model.entity.CommandLine;
 
+@Repository
 public class CommandLineDAOImplJPA implements CommandLineDAO{
 
+	@PersistenceContext
 	/**
 	 * Appel de l'entityManager pour intégration en base
 	 */
@@ -54,7 +59,7 @@ public class CommandLineDAOImplJPA implements CommandLineDAO{
 		if (cmdLine == null){
 			return false;
 		}
-		entityManager.persist(cmdLine);
+		entityManager.merge(cmdLine);
 		return true;
 	}
 

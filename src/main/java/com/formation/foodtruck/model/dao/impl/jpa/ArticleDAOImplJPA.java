@@ -4,16 +4,19 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+
+import org.springframework.stereotype.Repository;
 
 import com.formation.foodtruck.model.dao.ArticleDAO;
 import com.formation.foodtruck.model.entity.Article;
 
-
+@Repository
 public class ArticleDAOImplJPA implements ArticleDAO{
 
 
-
+	@PersistenceContext
 	/**
 	 * Appel de l'entityManager pour intégration en base
 	 */
@@ -59,7 +62,7 @@ public class ArticleDAOImplJPA implements ArticleDAO{
 		if (article == null){
 			return false;
 		}
-		entityManager.persist(article);
+		entityManager.merge(article);
 		return true;
 	}
 

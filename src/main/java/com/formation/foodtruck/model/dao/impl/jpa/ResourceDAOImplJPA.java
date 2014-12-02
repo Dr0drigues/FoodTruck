@@ -4,13 +4,19 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+
+import org.springframework.stereotype.Repository;
 
 import com.formation.foodtruck.model.dao.ResourceDAO;
 import com.formation.foodtruck.model.entity.Resource;
 
+@Repository
 public class ResourceDAOImplJPA implements ResourceDAO {
 
+
+	@PersistenceContext
 	/**
 	 * Appel de l'entityManager pour intégration en base
 	 */
@@ -54,7 +60,7 @@ public class ResourceDAOImplJPA implements ResourceDAO {
 		if (resource == null){
 			return false;
 		}
-		entityManager.persist(resource);
+		entityManager.merge(resource);
 		return true;
 	}
 
