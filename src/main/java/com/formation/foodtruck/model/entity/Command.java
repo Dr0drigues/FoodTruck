@@ -30,7 +30,7 @@ public class Command {
 	@ManyToOne
 	private Client client;
 
-	@OneToMany(mappedBy = "command", cascade = CascadeType.PERSIST)
+	@OneToMany(mappedBy = "command", cascade = CascadeType.PERSIST, orphanRemoval = true)
 	private List<CommandLine> listCommandLine = new ArrayList<CommandLine>();
 
 	/**

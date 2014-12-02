@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -21,6 +22,7 @@ public class IngredientTest {
 
 	@Before
 	public void setUp() throws Exception {
+		MockitoAnnotations.initMocks(this);
 		ingredientOk = new Ingredient("nom", provider, TypeIngredient.MEAT);
 	}
 
@@ -45,6 +47,14 @@ public class IngredientTest {
 		final Resource ingredientProviderNull = new Ingredient("nom", null,
 				TypeIngredient.MEAT);
 		Assert.assertNull(ingredientProviderNull);
+	}
+
+	@Test(expected = BadAttributeValueExpException.class)
+	public void testIngredientTypeNull() throws BadAttributeValueExpException {
+		final Resource ingredientTypeNull = new Ingredient("nom", provider,
+				null);
+
+		Assert.assertNull(ingredientTypeNull);
 	}
 
 	@Test(expected = BadAttributeValueExpException.class)
@@ -87,6 +97,8 @@ public class IngredientTest {
 		ingredientValide.setId(1);
 		ingredientValide.setName("nom");
 		ingredientValide.setProvider(provider);
+		((Ingredient) ingredientValide).setType(TypeIngredient.MEAT);
+
 	}
 
 }

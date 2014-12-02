@@ -8,20 +8,25 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class GearTest {
 
-	@InjectMocks
+	@Mock
 	private final Provider provider = Mockito.mock(Provider.class);
 
-	private Resource gearOk = null;
+	@InjectMocks
+	private Gear gearOk = new Gear();
 
 	@Before
 	public void setUp() throws Exception {
-		gearOk = new Gear("nom", provider);
+		MockitoAnnotations.initMocks(this);
+		gearOk.setName("nom");
+		gearOk.setProvider(provider);
 	}
 
 	@Test

@@ -29,14 +29,6 @@ public class Meal extends Article {
 	}
 
 	/**
-	 * @param listIngredient
-	 *            the listIngredient to set
-	 */
-	public void setListIngredient(List<Ingredient> listIngredient) {
-		this.listIngredient = listIngredient;
-	}
-
-	/**
 	 * 
 	 */
 	public Meal() {
@@ -64,6 +56,13 @@ public class Meal extends Article {
 		if (ingredient == null)
 			throw new BadAttributeValueExpException("attribut non renseigné");
 		listIngredient.add(ingredient);
+	}
+
+	public void removeIngredient(Ingredient ingredient)
+			throws BadAttributeValueExpException {
+		if (ingredient == null)
+			throw new BadAttributeValueExpException("attribut non renseigné");
+		listIngredient.remove(ingredient);
 	}
 
 }

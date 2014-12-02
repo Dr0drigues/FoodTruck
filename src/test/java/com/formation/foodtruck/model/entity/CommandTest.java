@@ -10,22 +10,27 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CommandTest {
 
-	@InjectMocks
+	@Mock
 	private final Client client = Mockito.mock(Client.class);
 
-	private Command commandOk = null;
+	@InjectMocks
+	private Command commandOk = new Command();
 	private Date date = null;
 
 	@Before
 	public void setUp() throws Exception {
+		MockitoAnnotations.initMocks(this);
 		date = new Date();
-		commandOk = new Command(client, date);
+		commandOk.setClient(client);
+		commandOk.setWithdrawal(date);
 	}
 
 	@Test

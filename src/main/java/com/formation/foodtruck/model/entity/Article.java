@@ -34,7 +34,7 @@ public abstract class Article {
 			throws BadAttributeValueExpException {
 		super();
 		if (name == null || name.isEmpty() || description == null
-				|| description.isEmpty())
+				|| description.isEmpty() || price == null)
 			throw new BadAttributeValueExpException("attribut non renseigné");
 		this.name = name;
 		this.description = description;
@@ -106,8 +106,11 @@ public abstract class Article {
 	/**
 	 * @param price
 	 *            the price to set
+	 * @throws BadAttributeValueExpException
 	 */
-	public void setPrice(Integer price) {
+	public void setPrice(Integer price) throws BadAttributeValueExpException {
+		if (price == null)
+			throw new BadAttributeValueExpException("attribut non renseigné");
 		this.price = price;
 	}
 }

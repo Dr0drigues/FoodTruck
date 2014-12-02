@@ -8,21 +8,28 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CommandLineTest {
 
-	@InjectMocks
+	@Mock
 	private final Article article = Mockito.mock(Article.class);
+	@Mock
 	private final Command command = Mockito.mock(Command.class);
 
-	private CommandLine commandLineOk = null;
+	@InjectMocks
+	private CommandLine commandLineOk = new CommandLine();
 
 	@Before
 	public void setUp() throws Exception {
-		commandLineOk = new CommandLine(command, article, 10);
+		MockitoAnnotations.initMocks(this);
+		commandLineOk.setArticle(article);
+		commandLineOk.setCommand(command);
+		commandLineOk.setQuantite(2);
 	}
 
 	@Test

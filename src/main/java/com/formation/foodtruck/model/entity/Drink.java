@@ -31,7 +31,7 @@ public class Drink extends Article {
 	 */
 	public Drink(String name, String description, Integer price,
 			VolumeDrink volume, TypeDrink type)
-			throws BadAttributeValueExpException {
+					throws BadAttributeValueExpException {
 		super(name, description, price);
 		if (volume == null || type == null)
 			throw new BadAttributeValueExpException("Attribut invalide");
@@ -70,12 +70,10 @@ public class Drink extends Article {
 	 *            the type to set
 	 * @throws BadAttributeValueExpException
 	 */
-	public void setType(TypeDrink type, VolumeDrink volume)
-			throws BadAttributeValueExpException {
-		if (type == null || volume == null)
+	public void setType(TypeDrink type) throws BadAttributeValueExpException {
+		if (type == null)
 			throw new BadAttributeValueExpException("Attribut invalide");
 		this.type = type;
-		this.volume = volume;
 	}
 
 }

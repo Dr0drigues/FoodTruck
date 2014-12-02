@@ -6,15 +6,25 @@ import junit.framework.Assert;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
 
+@RunWith(MockitoJUnitRunner.class)
 public class MealTest {
+	@Mock
+	private Ingredient ingredient = Mockito.mock(Ingredient.class);
 
-	private Article mealOk = null;
+	@InjectMocks
+	private Article mealOk = new Meal();
 
 	@Before
 	public void setUp() throws Exception {
-		mealOk = new Meal("nom", "description", 0);
-
+		mealOk.setDescription("description");
+		mealOk.setName("nom");
+		mealOk.setPrice(0);
 	}
 
 	@Test
@@ -79,6 +89,8 @@ public class MealTest {
 		mealValide.setName("nom");
 		mealValide.setDescription("description)");
 		mealValide.setPrice(1);
+		((Meal) mealValide).addIngredient(ingredient);
+		((Meal) mealValide).removeIngredient(ingredient);
 	}
 
 	@Test(expected = BadAttributeValueExpException.class)
@@ -86,4 +98,11 @@ public class MealTest {
 		Article mealNotOk = mealOk;
 		((Meal) mealNotOk).addIngredient(null);
 	}
+
+	@Test(expected = BadAttributeValueExpException.class)
+	public void testRemoveIngredient() throws BadAttributeValueExpException {
+		Article mealNotOk = mealOk;
+		((Meal) mealNotOk).removeIngredient(null);
+	}
+
 }

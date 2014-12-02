@@ -13,7 +13,8 @@ public class DrinkTest {
 
 	@Before
 	public void setUp() throws Exception {
-		drinkOk = new Meal("nom", "description", 0);
+		drinkOk = new Drink("nom", "description", 0, VolumeDrink.VOLUME33,
+				TypeDrink.HOTSOFT);
 
 	}
 
@@ -36,6 +37,27 @@ public class DrinkTest {
 	public void testDrinkDescriptionNull() throws BadAttributeValueExpException {
 		final Article drinkDescriptionNull = new Drink("nom", null, 0,
 				VolumeDrink.VOLUME25, TypeDrink.COLDSOFT);
+		Assert.assertNull(drinkDescriptionNull);
+	}
+
+	@Test(expected = BadAttributeValueExpException.class)
+	public void testDrinkPriceNull() throws BadAttributeValueExpException {
+		final Article drinkDescriptionNull = new Drink("nom", "description",
+				null, VolumeDrink.VOLUME25, TypeDrink.COLDSOFT);
+		Assert.assertNull(drinkDescriptionNull);
+	}
+
+	@Test(expected = BadAttributeValueExpException.class)
+	public void testDrinkVolumeNull() throws BadAttributeValueExpException {
+		final Article drinkDescriptionNull = new Drink("nom", "description", 0,
+				null, TypeDrink.COLDSOFT);
+		Assert.assertNull(drinkDescriptionNull);
+	}
+
+	@Test(expected = BadAttributeValueExpException.class)
+	public void testDrinkTypeNull() throws BadAttributeValueExpException {
+		final Article drinkDescriptionNull = new Drink("nom", "description", 0,
+				VolumeDrink.VOLUME25, null);
 		Assert.assertNull(drinkDescriptionNull);
 	}
 
@@ -71,6 +93,27 @@ public class DrinkTest {
 	public void testSetDescriptionVide() throws BadAttributeValueExpException {
 		Article drinkNotOk = drinkOk;
 		drinkNotOk.setDescription("");
+		Assert.assertNull(drinkNotOk);
+	}
+
+	@Test(expected = BadAttributeValueExpException.class)
+	public void testSetPriceNull() throws BadAttributeValueExpException {
+		Article drinkNotOk = drinkOk;
+		drinkNotOk.setPrice(null);
+		Assert.assertNull(drinkNotOk);
+	}
+
+	@Test(expected = BadAttributeValueExpException.class)
+	public void testSetVolumeNull() throws BadAttributeValueExpException {
+		Article drinkNotOk = drinkOk;
+		((Drink) drinkNotOk).setVolume(null);
+		Assert.assertNull(drinkNotOk);
+	}
+
+	@Test(expected = BadAttributeValueExpException.class)
+	public void testSetTypeNull() throws BadAttributeValueExpException {
+		Article drinkNotOk = drinkOk;
+		((Drink) drinkNotOk).setType(null);
 		Assert.assertNull(drinkNotOk);
 	}
 
