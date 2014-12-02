@@ -1,19 +1,16 @@
 package com.formation.foodtruck.model.entity;
 
+import javax.management.BadAttributeValueExpException;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.management.BadAttributeValueExpException;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Client {
 
+	// Booléen servant a définir si oui ou non le client est supprimé.
+	// Permet du coup de garder les informations dans la BDD pour garder les historiques des commandes.
+	boolean delete;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
@@ -21,7 +18,6 @@ public class Client {
 	private String firstName;
 	private String mail;
 	private String password;
-
 	@OneToMany(mappedBy = "client", cascade = CascadeType.PERSIST)
 	private List<Command> listCommand = new ArrayList<Command>();
 
@@ -147,4 +143,11 @@ public class Client {
 		this.listCommand = listCommand;
 	}
 
+	public boolean isDelete() {
+		return delete;
+	}
+
+	public void setDelete(boolean delete) {
+		this.delete = delete;
+	}
 }

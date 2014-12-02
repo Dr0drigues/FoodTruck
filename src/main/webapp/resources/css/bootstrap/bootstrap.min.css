@@ -1,5 +1,5 @@
 /*!
- * Bootstrap v3.3.1 (http://getbootstrap.com)
+ * Bootstrap v3.3.0 (http://getbootstrap.com)
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  *//*! normalize.css v3.0.2 | MIT License | git.io/normalize */
@@ -273,8 +273,8 @@ td, th {
 
 @font-face {
     font-family: 'Glyphicons Halflings';
-    src: url(../fonts/glyphicons-halflings-regular.eot);
-    src: url(../fonts/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'), url(../fonts/glyphicons-halflings-regular.woff) format('woff'), url(../fonts/glyphicons-halflings-regular.ttf) format('truetype'), url(../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg')
+    src: url(../../../../../../../../../Desktop/startbootstrap-sb-admin-2-1.0.1/fonts/glyphicons-halflings-regular.eot);
+    src: url(../../../../../../../../../Desktop/startbootstrap-sb-admin-2-1.0.1/fonts/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'), url(../../../../../../../../../Desktop/startbootstrap-sb-admin-2-1.0.1/fonts/glyphicons-halflings-regular.woff) format('woff'), url(../../../../../../../../../Desktop/startbootstrap-sb-admin-2-1.0.1/fonts/glyphicons-halflings-regular.ttf) format('truetype'), url(../../../../../../../../../Desktop/startbootstrap-sb-admin-2-1.0.1/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg')
 }
 
 .glyphicon {
@@ -1121,12 +1121,12 @@ input, button, select, textarea {
 }
 
 a {
-    color: #337ab7;
+    color: #428bca;
     text-decoration: none
 }
 
 a:hover, a:focus {
-    color: #23527c;
+    color: #2a6496;
     text-decoration: underline
 }
 
@@ -1317,11 +1317,11 @@ mark, .mark {
 }
 
 .text-primary {
-    color: #337ab7
+    color: #428bca
 }
 
 a.text-primary:hover {
-    color: #286090
+    color: #3071a9
 }
 
 .text-success {
@@ -1358,11 +1358,11 @@ a.text-danger:hover {
 
 .bg-primary {
     color: #fff;
-    background-color: #337ab7
+    background-color: #428bca
 }
 
 a.bg-primary:hover {
-    background-color: #286090
+    background-color: #3071a9
 }
 
 .bg-success {
@@ -2734,18 +2734,31 @@ input[type=search] {
     -webkit-appearance: none
 }
 
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-    input[type=date], input[type=time], input[type=datetime-local], input[type=month] {
-        line-height: 34px
-    }
+input[type=date], input[type=time], input[type=datetime-local], input[type=month] {
+    line-height: 34px;
+    line-height: 1.42857143 \0
+}
 
-    input[type=date].input-sm, input[type=time].input-sm, input[type=datetime-local].input-sm, input[type=month].input-sm {
-        line-height: 30px
-    }
+input[type=date].input-sm, input[type=time].input-sm, input[type=datetime-local].input-sm, input[type=month].input-sm {
+    line-height: 30px;
+    line-height: 1.5 \0
+}
 
-    input[type=date].input-lg, input[type=time].input-lg, input[type=datetime-local].input-lg, input[type=month].input-lg {
-        line-height: 46px
-    }
+input[type=date].input-lg, input[type=time].input-lg, input[type=datetime-local].input-lg, input[type=month].input-lg {
+    line-height: 46px;
+    line-height: 1.33 \0
+}
+
+_:-ms-fullscreen, :root input[type=date], _:-ms-fullscreen, :root input[type=time], _:-ms-fullscreen, :root input[type=datetime-local], _:-ms-fullscreen, :root input[type=month] {
+    line-height: 1.42857143
+}
+
+_:-ms-fullscreen.input-sm, :root input[type=date].input-sm, _:-ms-fullscreen.input-sm, :root input[type=time].input-sm, _:-ms-fullscreen.input-sm, :root input[type=datetime-local].input-sm, _:-ms-fullscreen.input-sm, :root input[type=month].input-sm {
+    line-height: 1.5
+}
+
+_:-ms-fullscreen.input-lg, :root input[type=date].input-lg, _:-ms-fullscreen.input-lg, :root input[type=time].input-lg, _:-ms-fullscreen.input-lg, :root input[type=datetime-local].input-lg, _:-ms-fullscreen.input-lg, :root input[type=month].input-lg {
+    line-height: 1.33
 }
 
 .form-group {
@@ -3146,14 +3159,14 @@ textarea.input-lg, textarea.form-group-lg .form-control, select[multiple].input-
 
 .btn-primary {
     color: #fff;
-    background-color: #337ab7;
-    border-color: #2e6da4
+    background-color: #428bca;
+    border-color: #357ebd
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
     color: #fff;
-    background-color: #286090;
-    border-color: #204d74
+    background-color: #3071a9;
+    border-color: #285e8e
 }
 
 .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
@@ -3161,12 +3174,12 @@ textarea.input-lg, textarea.form-group-lg .form-control, select[multiple].input-
 }
 
 .btn-primary.disabled, .btn-primary[disabled], fieldset[disabled] .btn-primary, .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover, .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus, .btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus, .btn-primary.disabled:active, .btn-primary[disabled]:active, fieldset[disabled] .btn-primary:active, .btn-primary.disabled.active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary.active {
-    background-color: #337ab7;
-    border-color: #2e6da4
+    background-color: #428bca;
+    border-color: #357ebd
 }
 
 .btn-primary .badge {
-    color: #337ab7;
+    color: #428bca;
     background-color: #fff
 }
 
@@ -3276,7 +3289,7 @@ textarea.input-lg, textarea.form-group-lg .form-control, select[multiple].input-
 
 .btn-link {
     font-weight: 400;
-    color: #337ab7;
+    color: #428bca;
     border-radius: 0
 }
 
@@ -3291,7 +3304,7 @@ textarea.input-lg, textarea.form-group-lg .form-control, select[multiple].input-
 }
 
 .btn-link:hover, .btn-link:focus {
-    color: #23527c;
+    color: #2a6496;
     text-decoration: underline;
     background-color: transparent
 }
@@ -3452,7 +3465,7 @@ tbody.collapse.in {
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
     color: #fff;
     text-decoration: none;
-    background-color: #337ab7;
+    background-color: #428bca;
     outline: 0
 }
 
@@ -3546,6 +3559,10 @@ tbody.collapse.in {
 
 .btn-group > .btn:hover, .btn-group-vertical > .btn:hover, .btn-group > .btn:focus, .btn-group-vertical > .btn:focus, .btn-group > .btn:active, .btn-group-vertical > .btn:active, .btn-group > .btn.active, .btn-group-vertical > .btn.active {
     z-index: 2
+}
+
+.btn-group > .btn:focus, .btn-group-vertical > .btn:focus {
+    outline: 0
 }
 
 .btn-group .btn + .btn, .btn-group .btn + .btn-group, .btn-group .btn-group + .btn, .btn-group .btn-group + .btn-group {
@@ -3885,7 +3902,7 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
 
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
     background-color: #eee;
-    border-color: #337ab7
+    border-color: #428bca
 }
 
 .nav .nav-divider {
@@ -3991,7 +4008,7 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
     color: #fff;
-    background-color: #337ab7
+    background-color: #428bca
 }
 
 .nav-stacked > li {
@@ -4393,8 +4410,6 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
 }
 
 .navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0
 }
@@ -4687,7 +4702,7 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
     padding: 6px 12px;
     margin-left: -1px;
     line-height: 1.42857143;
-    color: #337ab7;
+    color: #428bca;
     text-decoration: none;
     background-color: #fff;
     border: 1px solid #ddd
@@ -4705,7 +4720,7 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
 }
 
 .pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
-    color: #23527c;
+    color: #2a6496;
     background-color: #eee;
     border-color: #ddd
 }
@@ -4714,8 +4729,8 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
     z-index: 2;
     color: #fff;
     cursor: default;
-    background-color: #337ab7;
-    border-color: #337ab7
+    background-color: #428bca;
+    border-color: #428bca
 }
 
 .pagination > .disabled > span, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus {
@@ -4830,11 +4845,11 @@ a.label:hover, a.label:focus {
 }
 
 .label-primary {
-    background-color: #337ab7
+    background-color: #428bca
 }
 
 .label-primary[href]:hover, .label-primary[href]:focus {
-    background-color: #286090
+    background-color: #3071a9
 }
 
 .label-success {
@@ -4904,17 +4919,9 @@ a.badge:hover, a.badge:focus {
     cursor: pointer
 }
 
-.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
-    color: #337ab7;
+a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
+    color: #428bca;
     background-color: #fff
-}
-
-.list-group-item > .badge {
-    float: right
-}
-
-.list-group-item > .badge + .badge {
-    margin-right: 5px
 }
 
 .nav-pills > li > a > .badge {
@@ -4955,7 +4962,7 @@ a.badge:hover, a.badge:focus {
         padding: 48px 0
     }
 
-    .container .jumbotron, .container-fluid .jumbotron {
+    .container .jumbotron {
         padding-right: 60px;
         padding-left: 60px
     }
@@ -4984,7 +4991,7 @@ a.badge:hover, a.badge:focus {
 }
 
 a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
-    border-color: #337ab7
+    border-color: #428bca
 }
 
 .thumbnail .caption {
@@ -5128,7 +5135,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     line-height: 20px;
     color: #fff;
     text-align: center;
-    background-color: #337ab7;
+    background-color: #428bca;
     -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
     box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
     -webkit-transition: width .6s ease;
@@ -5254,6 +5261,14 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     border-bottom-left-radius: 4px
 }
 
+.list-group-item > .badge {
+    float: right
+}
+
+.list-group-item > .badge + .badge {
+    margin-right: 5px
+}
+
 a.list-group-item {
     color: #555
 }
@@ -5285,8 +5300,8 @@ a.list-group-item:hover, a.list-group-item:focus {
 .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
     z-index: 2;
     color: #fff;
-    background-color: #337ab7;
-    border-color: #337ab7
+    background-color: #428bca;
+    border-color: #428bca
 }
 
 .list-group-item.active .list-group-item-heading, .list-group-item.active:hover .list-group-item-heading, .list-group-item.active:focus .list-group-item-heading, .list-group-item.active .list-group-item-heading > small, .list-group-item.active:hover .list-group-item-heading > small, .list-group-item.active:focus .list-group-item-heading > small, .list-group-item.active .list-group-item-heading > .small, .list-group-item.active:hover .list-group-item-heading > .small, .list-group-item.active:focus .list-group-item-heading > .small {
@@ -5294,7 +5309,7 @@ a.list-group-item:hover, a.list-group-item:focus {
 }
 
 .list-group-item.active .list-group-item-text, .list-group-item.active:hover .list-group-item-text, .list-group-item.active:focus .list-group-item-text {
-    color: #c7ddef
+    color: #e1edf7
 }
 
 .list-group-item-success {
@@ -5606,26 +5621,26 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 }
 
 .panel-primary {
-    border-color: #337ab7
+    border-color: #428bca
 }
 
 .panel-primary > .panel-heading {
     color: #fff;
-    background-color: #337ab7;
-    border-color: #337ab7
+    background-color: #428bca;
+    border-color: #428bca
 }
 
 .panel-primary > .panel-heading + .panel-collapse > .panel-body {
-    border-top-color: #337ab7
+    border-top-color: #428bca
 }
 
 .panel-primary > .panel-heading .badge {
-    color: #337ab7;
+    color: #428bca;
     background-color: #fff
 }
 
 .panel-primary > .panel-footer + .panel-collapse > .panel-body {
-    border-bottom-color: #337ab7
+    border-bottom-color: #428bca
 }
 
 .panel-success {
@@ -5858,9 +5873,10 @@ button.close {
 }
 
 .modal-backdrop {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
+    bottom: 0;
     left: 0;
     background-color: #000
 }
@@ -5948,9 +5964,7 @@ button.close {
     position: absolute;
     z-index: 1070;
     display: block;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 12px;
-    font-weight: 400;
     line-height: 1.4;
     visibility: visible;
     filter: alpha(opacity=0);
@@ -6009,17 +6023,15 @@ button.close {
 }
 
 .tooltip.top-left .tooltip-arrow {
-    right: 5px;
     bottom: 0;
-    margin-bottom: -5px;
+    left: 5px;
     border-width: 5px 5px 0;
     border-top-color: #000
 }
 
 .tooltip.top-right .tooltip-arrow {
+    right: 5px;
     bottom: 0;
-    left: 5px;
-    margin-bottom: -5px;
     border-width: 5px 5px 0;
     border-top-color: #000
 }
@@ -6050,16 +6062,14 @@ button.close {
 
 .tooltip.bottom-left .tooltip-arrow {
     top: 0;
-    right: 5px;
-    margin-top: -5px;
+    left: 5px;
     border-width: 0 5px 5px;
     border-bottom-color: #000
 }
 
 .tooltip.bottom-right .tooltip-arrow {
     top: 0;
-    left: 5px;
-    margin-top: -5px;
+    right: 5px;
     border-width: 0 5px 5px;
     border-bottom-color: #000
 }
@@ -6072,7 +6082,6 @@ button.close {
     display: none;
     max-width: 276px;
     padding: 1px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.42857143;
