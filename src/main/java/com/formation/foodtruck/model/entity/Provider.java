@@ -1,5 +1,6 @@
 package com.formation.foodtruck.model.entity;
 
+import javax.management.BadAttributeValueExpException;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +19,13 @@ public class Provider {
 
 	}
 
+	public Provider(String name) throws BadAttributeValueExpException {
+		super();
+		if (name == null || name.isEmpty())
+			throw new BadAttributeValueExpException("attribut non renseigné");
+		this.name = name;
+	}
+
 	/**
 	 * @return the id
 	 */
@@ -28,8 +36,11 @@ public class Provider {
 	/**
 	 * @param id
 	 *            the id to set
+	 * @throws BadAttributeValueExpException
 	 */
-	public void setId(Integer id) {
+	public void setId(Integer id) throws BadAttributeValueExpException {
+		if (id == null)
+			throw new BadAttributeValueExpException("attribut non renseigné");
 		this.id = id;
 	}
 
@@ -43,8 +54,11 @@ public class Provider {
 	/**
 	 * @param name
 	 *            the name to set
+	 * @throws BadAttributeValueExpException
 	 */
-	public void setName(String name) {
+	public void setName(String name) throws BadAttributeValueExpException {
+		if (name == null || name.isEmpty())
+			throw new BadAttributeValueExpException("attribut non renseigné");
 		this.name = name;
 	}
 

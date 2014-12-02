@@ -1,5 +1,6 @@
 package com.formation.foodtruck.model.entity;
 
+import javax.management.BadAttributeValueExpException;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,7 +17,7 @@ public abstract class Article {
 	private Integer id;
 	private String name;
 	private String description;
-	private Float price;
+	private Integer price;
 
 	public Article() {
 		super();
@@ -29,8 +30,12 @@ public abstract class Article {
 	 * @param price
 	 */
 
-	public Article(String name, String description, Float price) {
+	public Article(String name, String description, Integer price)
+			throws BadAttributeValueExpException {
 		super();
+		if (name == null || name.isEmpty() || description == null
+				|| description.isEmpty())
+			throw new BadAttributeValueExpException("attribut non renseigné");
 		this.name = name;
 		this.description = description;
 		this.price = price;
@@ -46,8 +51,11 @@ public abstract class Article {
 	/**
 	 * @param id
 	 *            the id to set
+	 * @throws BadAttributeValueExpException
 	 */
-	public void setId(Integer id) {
+	public void setId(Integer id) throws BadAttributeValueExpException {
+		if (id == null)
+			throw new BadAttributeValueExpException("attribut non renseigné");
 		this.id = id;
 	}
 
@@ -61,8 +69,11 @@ public abstract class Article {
 	/**
 	 * @param name
 	 *            the name to set
+	 * @throws BadAttributeValueExpException
 	 */
-	public void setName(String name) {
+	public void setName(String name) throws BadAttributeValueExpException {
+		if (name == null || name.isEmpty())
+			throw new BadAttributeValueExpException("attribut non renseigné");
 		this.name = name;
 	}
 
@@ -76,15 +87,19 @@ public abstract class Article {
 	/**
 	 * @param description
 	 *            the description to set
+	 * @throws BadAttributeValueExpException
 	 */
-	public void setDescription(String description) {
+	public void setDescription(String description)
+			throws BadAttributeValueExpException {
+		if (description == null || description.isEmpty())
+			throw new BadAttributeValueExpException("attribut non renseigné");
 		this.description = description;
 	}
 
 	/**
 	 * @return the price
 	 */
-	public Float getPrice() {
+	public Integer getPrice() {
 		return price;
 	}
 
@@ -92,7 +107,7 @@ public abstract class Article {
 	 * @param price
 	 *            the price to set
 	 */
-	public void setPrice(Float price) {
+	public void setPrice(Integer price) {
 		this.price = price;
 	}
 }

@@ -128,11 +128,11 @@ public class ClientTest {
 	@Test
 	public void testSetOk() throws BadAttributeValueExpException {
 
-		Client clientNotOk = clientOk;
-		clientNotOk.setId(1);
-		clientNotOk.setLastName("nom");
-		clientNotOk.setFirstName("prénom");
-		clientNotOk.setMail("mail");
-		clientNotOk.setPassword("password");
+		Client clientValide = clientOk;
+		clientValide.setId(1);
+		clientValide.setLastName("nom");
+		clientValide.setFirstName("prénom");
+		clientValide.setMail("mail");
+		clientValide.setPassword("password");
 	}
 }

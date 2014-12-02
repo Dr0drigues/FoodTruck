@@ -11,8 +11,6 @@
 		<class>com.formation.foodtruck.model.entity.Meal</class>
 		<class>com.formation.foodtruck.model.entity.Provider</class>
 		<class>com.formation.foodtruck.model.entity.Resource</class>
-		<class>com.formation.foodtruck.model.entity.TypeDrink</class>
-		<class>com.formation.foodtruck.model.entity.TypeIngredient</class>
 		<properties>
 		    <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 		    <property name="hibernate.showSql" value="true" />

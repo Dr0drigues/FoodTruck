@@ -32,18 +32,16 @@ public class Client {
 	public Client(String lastName, String firstName, String mail,
 			String password) throws BadAttributeValueExpException {
 		super();
-		if (lastName == null || lastName.isEmpty())
-			throw new BadAttributeValueExpException("lastName non renseigné");
+		if (lastName == null || lastName.isEmpty() || firstName == null
+				|| firstName.isEmpty() || mail == null || mail.isEmpty()
+				|| password == null || password.isEmpty())
+			throw new BadAttributeValueExpException("attribut non renseigné");
+
 		this.lastName = lastName;
-		if (firstName == null || firstName.isEmpty())
-			throw new BadAttributeValueExpException("firstName non renseigné");
 		this.firstName = firstName;
-		if (mail == null || mail.isEmpty())
-			throw new BadAttributeValueExpException("mail non renseigné");
 		this.mail = mail;
-		if (password == null || password.isEmpty())
-			throw new BadAttributeValueExpException("password non renseigné");
 		this.password = password;
+
 	}
 
 	/**

@@ -3,6 +3,7 @@
  */
 package com.formation.foodtruck.model.entity;
 
+import javax.management.BadAttributeValueExpException;
 import javax.persistence.Entity;
 
 /**
@@ -24,8 +25,12 @@ public class Ingredient extends Resource {
 	/**
 	 * @param type
 	 *            the type to set
+	 * @throws BadAttributeValueExpException
 	 */
-	public void setType(TypeIngredient type) {
+	public void setType(TypeIngredient type)
+			throws BadAttributeValueExpException {
+		if (type == null)
+			throw new BadAttributeValueExpException("Type Ingredient invalide");
 		this.type = type;
 	}
 
@@ -39,9 +44,13 @@ public class Ingredient extends Resource {
 	/**
 	 * @param name
 	 * @param provider
+	 * @throws BadAttributeValueExpException
 	 */
-	public Ingredient(String name, Provider provider, TypeIngredient type) {
+	public Ingredient(String name, Provider provider, TypeIngredient type)
+			throws BadAttributeValueExpException {
 		super(name, provider);
+		if (type == null)
+			throw new BadAttributeValueExpException("attribut invalide");
 		this.type = type;
 	}
 

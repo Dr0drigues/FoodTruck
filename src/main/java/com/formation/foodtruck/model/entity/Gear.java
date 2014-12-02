@@ -3,6 +3,7 @@
  */
 package com.formation.foodtruck.model.entity;
 
+import javax.management.BadAttributeValueExpException;
 import javax.persistence.Entity;
 
 /**
@@ -21,8 +22,10 @@ public class Gear extends Resource {
 
 	/**
 	 * @param name
+	 * @throws BadAttributeValueExpException
 	 */
-	public Gear(String name, Provider provider) {
+	public Gear(String name, Provider provider)
+			throws BadAttributeValueExpException {
 		super(name, provider);
 	}
 

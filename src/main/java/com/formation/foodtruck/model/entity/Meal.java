@@ -6,6 +6,7 @@ package com.formation.foodtruck.model.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.management.BadAttributeValueExpException;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -46,9 +47,23 @@ public class Meal extends Article {
 	 * @param name
 	 * @param description
 	 * @param price
+	 * @throws BadAttributeValueExpException
 	 */
-	public Meal(String name, String description, Float price) {
+	public Meal(String name, String description, Integer price)
+			throws BadAttributeValueExpException {
 		super(name, description, price);
+	}
+
+	/**
+	 * 
+	 * @param ingredient
+	 * @throws BadAttributeValueExpException
+	 */
+	public void addIngredient(Ingredient ingredient)
+			throws BadAttributeValueExpException {
+		if (ingredient == null)
+			throw new BadAttributeValueExpException("attribut non renseigné");
+		listIngredient.add(ingredient);
 	}
 
 }

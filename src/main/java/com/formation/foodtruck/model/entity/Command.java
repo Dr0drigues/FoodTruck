@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.management.BadAttributeValueExpException;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -42,8 +43,11 @@ public class Command {
 	/**
 	 * @param id
 	 *            the id to set
+	 * @throws BadAttributeValueExpException
 	 */
-	public void setId(Integer id) {
+	public void setId(Integer id) throws BadAttributeValueExpException {
+		if (id == null)
+			throw new BadAttributeValueExpException("Attribut invalide");
 		this.id = id;
 	}
 
@@ -57,8 +61,12 @@ public class Command {
 	/**
 	 * @param withdrawal
 	 *            the withdrawal to set
+	 * @throws BadAttributeValueExpException
 	 */
-	public void setWithdrawal(Date withdrawal) {
+	public void setWithdrawal(Date withdrawal)
+			throws BadAttributeValueExpException {
+		if (withdrawal == null)
+			throw new BadAttributeValueExpException("Id invalide");
 		this.withdrawal = withdrawal;
 	}
 
@@ -79,16 +87,23 @@ public class Command {
 	/**
 	 * @param client
 	 *            the client to set
+	 * @throws BadAttributeValueExpException
 	 */
-	public void setClient(Client client) {
+	public void setClient(Client client) throws BadAttributeValueExpException {
+		if (client == null)
+			throw new BadAttributeValueExpException("Id invalide");
 		this.client = client;
 	}
 
 	/**
 	 * @param listCommandLine
 	 *            the listCommandLine to set
+	 * @throws BadAttributeValueExpException
 	 */
-	public void setListCommandLine(List<CommandLine> listCommandLine) {
+	public void setListCommandLine(List<CommandLine> listCommandLine)
+			throws BadAttributeValueExpException {
+		if (listCommandLine == null)
+			throw new BadAttributeValueExpException("Id invalide");
 		this.listCommandLine = listCommandLine;
 	}
 
@@ -99,8 +114,14 @@ public class Command {
 		super();
 	}
 
-	public Command(Date withdrawal) {
+	public Command(Client client, Date withdrawal)
+			throws BadAttributeValueExpException {
 		super();
+		if (client == null)
+			throw new BadAttributeValueExpException("Id invalide");
+		if (withdrawal == null)
+			throw new BadAttributeValueExpException("Id invalide");
+		this.client = client;
 		this.withdrawal = withdrawal;
 	}
 

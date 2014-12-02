@@ -3,6 +3,7 @@
  */
 package com.formation.foodtruck.model.entity;
 
+import javax.management.BadAttributeValueExpException;
 import javax.persistence.Entity;
 
 /**
@@ -26,9 +27,16 @@ public class Drink extends Article {
 	 * @param name
 	 * @param description
 	 * @param price
+	 * @throws BadAttributeValueExpException
 	 */
-	public Drink(String name, String description, Float price) {
+	public Drink(String name, String description, Integer price,
+			VolumeDrink volume, TypeDrink type)
+			throws BadAttributeValueExpException {
 		super(name, description, price);
+		if (volume == null || type == null)
+			throw new BadAttributeValueExpException("Attribut invalide");
+		this.volume = volume;
+		this.type = type;
 	}
 
 	/**
@@ -41,8 +49,12 @@ public class Drink extends Article {
 	/**
 	 * @param volume
 	 *            the volume to set
+	 * @throws BadAttributeValueExpException
 	 */
-	public void setVolume(VolumeDrink volume) {
+	public void setVolume(VolumeDrink volume)
+			throws BadAttributeValueExpException {
+		if (volume == null)
+			throw new BadAttributeValueExpException("Attribut invalide");
 		this.volume = volume;
 	}
 
@@ -56,8 +68,12 @@ public class Drink extends Article {
 	/**
 	 * @param type
 	 *            the type to set
+	 * @throws BadAttributeValueExpException
 	 */
-	public void setType(TypeDrink type, VolumeDrink volume) {
+	public void setType(TypeDrink type, VolumeDrink volume)
+			throws BadAttributeValueExpException {
+		if (type == null || volume == null)
+			throw new BadAttributeValueExpException("Attribut invalide");
 		this.type = type;
 		this.volume = volume;
 	}

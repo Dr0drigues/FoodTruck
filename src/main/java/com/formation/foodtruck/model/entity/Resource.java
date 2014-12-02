@@ -3,6 +3,7 @@
  */
 package com.formation.foodtruck.model.entity;
 
+import javax.management.BadAttributeValueExpException;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -33,8 +34,11 @@ public abstract class Resource {
 		super();
 	}
 
-	public Resource(String name, Provider provider) {
+	public Resource(String name, Provider provider)
+			throws BadAttributeValueExpException {
 		super();
+		if (name == null || name.isEmpty() || provider == null)
+			throw new BadAttributeValueExpException("attribut non renseigné");
 		this.name = name;
 		this.provider = provider;
 	}
@@ -49,8 +53,11 @@ public abstract class Resource {
 	/**
 	 * @param id
 	 *            the id to set
+	 * @throws BadAttributeValueExpException
 	 */
-	public void setId(Integer id) {
+	public void setId(Integer id) throws BadAttributeValueExpException {
+		if (id == null)
+			throw new BadAttributeValueExpException("attribut non renseigné");
 		this.id = id;
 	}
 
@@ -64,8 +71,11 @@ public abstract class Resource {
 	/**
 	 * @param name
 	 *            the name to set
+	 * @throws BadAttributeValueExpException
 	 */
-	public void setName(String name) {
+	public void setName(String name) throws BadAttributeValueExpException {
+		if (name == null || name.isEmpty())
+			throw new BadAttributeValueExpException("attribut non renseigné");
 		this.name = name;
 	}
 
@@ -79,8 +89,12 @@ public abstract class Resource {
 	/**
 	 * @param provider
 	 *            the provider to set
+	 * @throws BadAttributeValueExpException
 	 */
-	public void setProvider(Provider provider) {
+	public void setProvider(Provider provider)
+			throws BadAttributeValueExpException {
+		if (provider == null)
+			throw new BadAttributeValueExpException("attribut non renseigné");
 		this.provider = provider;
 	}
 
