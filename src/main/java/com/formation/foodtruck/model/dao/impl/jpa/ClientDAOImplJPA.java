@@ -13,15 +13,13 @@ import com.formation.foodtruck.model.dao.ClientDAO;
 import com.formation.foodtruck.model.entity.Client;
 
 @Repository
-public class ClientDAOImplJPA implements ClientDAO{
+public class ClientDAOImplJPA implements ClientDAO {
 
 	@PersistenceContext
 	/**
 	 * Appel de l'entityManager pour intégration en base
 	 */
 	private EntityManager entityManager;
-
-
 
 	/**
 	 * Méthode de création d'un client en base
@@ -30,7 +28,7 @@ public class ClientDAOImplJPA implements ClientDAO{
 
 	@Override
 	public boolean create(Client client) throws SQLException {
-		if (client == null){
+		if (client == null) {
 			return false;
 		}
 		entityManager.persist(client);
@@ -44,13 +42,12 @@ public class ClientDAOImplJPA implements ClientDAO{
 
 	@Override
 	public boolean delete(Client client) throws SQLException {
-		if (client == null){
+		if (client == null) {
 			return false;
 		}
 		entityManager.remove(client);
 		return true;
 	}
-
 
 	/**
 	 * Méthode de modification d'un client en base
@@ -59,7 +56,7 @@ public class ClientDAOImplJPA implements ClientDAO{
 
 	@Override
 	public boolean update(Client client) throws SQLException {
-		if (client == null){
+		if (client == null || client.isDelete()) {
 			return false;
 		}
 		entityManager.merge(client);
@@ -73,10 +70,11 @@ public class ClientDAOImplJPA implements ClientDAO{
 
 	@Override
 	public Client find(Integer id) throws SQLException {
-		if (id == null){
+		if (id == null) {
 			return null;
 		}
-		return entityManager.find(Client.class, id);
+		Client client = entityManager.find(Client.class, id);
+		return (client.isDelete()) ? null : client;
 	}
 
 	/**
@@ -87,7 +85,8 @@ public class ClientDAOImplJPA implements ClientDAO{
 	@Override
 	public List<Client> findAll() {
 		final String request = "select * from articla a";
-		final TypedQuery<Client> query = entityManager.createQuery(request, Client.class);
+		final TypedQuery<Client> query = entityManager.createQuery(request,
+				Client.class);
 		return query.getResultList();
 	}
 
