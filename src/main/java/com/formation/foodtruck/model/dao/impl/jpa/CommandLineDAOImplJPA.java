@@ -83,7 +83,7 @@ public class CommandLineDAOImplJPA implements CommandLineDAO{
 
 	@Override
 	public List<CommandLine> findAll() {
-		final String request = "select * from articla a";
+		final String request = "select cl from CommandLine cl";
 		final TypedQuery<CommandLine> query = entityManager.createQuery(request, CommandLine.class);
 		return query.getResultList();
 	}

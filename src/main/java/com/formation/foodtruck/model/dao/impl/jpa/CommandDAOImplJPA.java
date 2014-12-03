@@ -84,7 +84,7 @@ public class CommandDAOImplJPA implements CommandDAO{
 
 	@Override
 	public List<Command> findAll() {
-		final String request = "select * from articla a";
+		final String request = "select c from Command c";
 		final TypedQuery<Command> query = entityManager.createQuery(request, Command.class);
 		return query.getResultList();
 	}
