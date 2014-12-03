@@ -4,6 +4,9 @@
 <!-- Bootstrap Core -->
 <link href="${pageContext.request.contextPath}/resources/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 
+<!-- JQuery UI Core -->
+<link href="${pageContext.request.contextPath}/resources/css/jqueryui/jquery-ui.min.css" rel="stylesheet">
+
 <!-- MetisMenu -->
 <link href="${pageContext.request.contextPath}/resources/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
 

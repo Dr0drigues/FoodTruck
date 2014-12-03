@@ -3,36 +3,22 @@
  */
 package com.formation.foodtruck.model.entity;
 
-
 /**
  * @author Administrateur
  *
  */
 public enum TypeIngredient {
-	VEGETABLE(1, "vegetable"), MEAT(2, "meat"), SPICE(3, "spice");
+	VEGETABLE("vegetable"), MEAT("meat"), SPICE("spice");
 
-	private Integer value;
 	private String libelle;
 
-	private TypeIngredient(Integer value, String libelle) {
-		this.value = value;
+	private TypeIngredient(String libelle) {
 		this.libelle = libelle;
-
 	}
 
-	/**
-	 * @return the value
-	 */
-	public Integer getValue() {
-		return value;
-	}
-
-	/**
-	 * @param value
-	 *            the value to set
-	 */
-	public void setValue(Integer value) {
-		this.value = value;
+	@Override
+	public String toString() {
+		return libelle;
 	}
 
 	/**

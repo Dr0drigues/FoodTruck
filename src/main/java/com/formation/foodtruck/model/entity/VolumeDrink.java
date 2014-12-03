@@ -8,31 +8,19 @@ package com.formation.foodtruck.model.entity;
  *
  */
 public enum VolumeDrink {
-	VOLUME25(1, "25cl"), VOLUME33(2, "33cl"), VOLUME50(3, "50cl"), VOLUME75(4,
-			"75cl"), VOLUME100(5, "100cl");
+	VOLUME25("25cl"), VOLUME33("33cl"), VOLUME50("50cl"), VOLUME75("75cl"), VOLUME100(
+			"100cl");
 
-	private Integer value;
 	private String libelle;
 
-	private VolumeDrink(Integer value, String libelle) {
-		this.value = value;
+	private VolumeDrink(String libelle) {
 		this.libelle = libelle;
 
 	}
 
-	/**
-	 * @return the value
-	 */
-	public Integer getValue() {
-		return value;
-	}
-
-	/**
-	 * @param value
-	 *            the value to set
-	 */
-	public void setValue(Integer value) {
-		this.value = value;
+	@Override
+	public String toString() {
+		return libelle;
 	}
 
 	/**

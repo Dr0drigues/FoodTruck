@@ -5,6 +5,7 @@ package com.formation.foodtruck.model.entity;
 
 import javax.management.BadAttributeValueExpException;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 
 /**
  * @author Administrateur
@@ -12,8 +13,9 @@ import javax.persistence.Entity;
  */
 @Entity
 public class Drink extends Article {
-
+	@Enumerated
 	private VolumeDrink volume;
+	@Enumerated
 	private TypeDrink type;
 
 	/**

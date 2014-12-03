@@ -6,6 +6,9 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="${pageContext.request.contextPath}/resources/js/bootstrap/bootstrap.min.js"></script>
 
+<!-- jQuery UI -->
+<script src="${pageContext.request.contextPath}/resources/js/jqueryui/jquery-ui.min.js"></script>
+
 <!-- Metis Menu Plugin JavaScript -->
 <script src="${pageContext.request.contextPath}/resources/js/plugins/metisMenu/metisMenu.min.js"></script>
 
@@ -15,3 +18,7 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="${pageContext.request.contextPath}/resources/js/perso/sb-admin-2.js"></script>
+
+
+<!-- Drinks JavaScript -->
+<script src="${pageContext.request.contextPath}/resources/js/perso/drink.js"></script>
