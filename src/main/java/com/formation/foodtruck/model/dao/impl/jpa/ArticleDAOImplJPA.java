@@ -86,14 +86,14 @@ public class ArticleDAOImplJPA implements ArticleDAO{
 
 	@Override
 	public List<Article> findAllMeal() {
-		final String request = "select * from article a where type(a) = Meal";
+		final String request = "select a from Article a where type(a) = Meal";
 		final TypedQuery<Article> query = entityManager.createQuery(request, Article.class);
 		return query.getResultList();
 	}
 
 	@Override
 	public List<Article> findAllDrink() {
-		final String request = "select * from article a where type(a) = Drink";
+		final String request = "select a from Article a where type(a) = Drink";
 		final TypedQuery<Article> query = entityManager.createQuery(request, Article.class);
 		return query.getResultList();
 	}

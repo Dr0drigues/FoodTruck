@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.formation.foodtruck.model.entity.Article;
 
-public interface ArticleDAO extends DAO<Article>{
+public interface ArticleDAO extends DAO<Article> {
 
 	public List<Article> findAllMeal();
 
