@@ -1,10 +1,7 @@
 package com.formation.foodtruck.model.manager.impl.managers;
 
 import java.sql.SQLException;
-<<<<<<< HEAD
 import java.util.List;
-=======
->>>>>>> branch 'master' of https://github.com/TimmyParkwayd/FoodTruck
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +24,6 @@ public class ArticleManagerImpl implements ArticleManager {
 
 	@Override
 	@Transactional(readOnly = false)
-<<<<<<< HEAD
 	public Boolean addDrink(Article drink) {
 		if (drink == null) {
 			return Boolean.FALSE;
@@ -38,18 +34,6 @@ public class ArticleManagerImpl implements ArticleManager {
 			try {
 				articleDAO.delete(drink);
 			} catch (SQLException e1) {
-=======
-	public Boolean addDrink(Drink drink) {
-		if (drink == null) {
-			return Boolean.FALSE;
-		}
-		try {
-			articleDAO.create(drink);
-		} catch (final SQLException e) {
-			try {
-				articleDAO.delete(drink);
-			} catch (final SQLException e1) {
->>>>>>> branch 'master' of https://github.com/TimmyParkwayd/FoodTruck
 				e1.printStackTrace();
 			}
 			e.printStackTrace();
@@ -60,7 +44,6 @@ public class ArticleManagerImpl implements ArticleManager {
 
 	@Override
 	@Transactional(readOnly = false)
-<<<<<<< HEAD
 	public Boolean addMeal(Article meal) {
 		if (meal == null) {
 			return Boolean.FALSE;
@@ -71,18 +54,6 @@ public class ArticleManagerImpl implements ArticleManager {
 			try {
 				articleDAO.delete(meal);
 			} catch (SQLException e1) {
-=======
-	public Boolean addMeal(Meal meal) {
-		if (meal == null) {
-			return Boolean.FALSE;
-		}
-		try {
-			articleDAO.create(meal);
-		} catch (final SQLException e) {
-			try {
-				articleDAO.delete(meal);
-			} catch (final SQLException e1) {
->>>>>>> branch 'master' of https://github.com/TimmyParkwayd/FoodTruck
 				e1.printStackTrace();
 			}
 			e.printStackTrace();
@@ -101,10 +72,9 @@ public class ArticleManagerImpl implements ArticleManager {
 		return (Meal) articleDAO.find(id);
 	}
 
-<<<<<<< HEAD
 	@Override
 	@Transactional(readOnly = false)
-	public Boolean updateDrink(Drink drink) {
+	public Boolean updateDrink(Article drink) {
 		try {
 			articleDAO.update(drink);
 		} catch (SQLException e) {
@@ -113,17 +83,10 @@ public class ArticleManagerImpl implements ArticleManager {
 		}
 		return Boolean.TRUE;
 	}
-=======
-	/*@Override
-    @Transactional(readOnly = false)
-    public List<Drink> getDrinkList() {
-        return articleDAO.findAllDrink();
-    }
->>>>>>> branch 'master' of https://github.com/TimmyParkwayd/FoodTruck
 
 	@Override
 	@Transactional(readOnly = false)
-	public Boolean updateMeal(Meal meal) {
+	public Boolean updateMeal(Article meal) {
 		try {
 			articleDAO.update(meal);
 		} catch (SQLException e) {
@@ -133,10 +96,9 @@ public class ArticleManagerImpl implements ArticleManager {
 		return Boolean.TRUE;
 	}
 
-<<<<<<< HEAD
 	@Override
 	@Transactional(readOnly = false)
-	public Boolean removeDrink(Drink drink) {
+	public Boolean removeDrink(Article drink) {
 		try {
 			articleDAO.delete(articleDAO.find(drink.getId()));
 		} catch (final SQLException e) {
@@ -145,24 +107,10 @@ public class ArticleManagerImpl implements ArticleManager {
 		}
 		return Boolean.TRUE;
 	}
-=======
-    @Override
-    @Transactional(readOnly = false)
-    public Boolean updateDrink(Drink drink) {
-    	try {
-    		articleDAO.update(drink);
-    	} catch (final SQLException e) {
-    		e.printStackTrace();
-    		return Boolean.FALSE;
-    	}
-    	return Boolean.TRUE;
-    }
->>>>>>> branch 'master' of https://github.com/TimmyParkwayd/FoodTruck
 
-<<<<<<< HEAD
 	@Override
 	@Transactional(readOnly = false)
-	public Boolean removeMeal(Meal meal) {
+	public Boolean removeMeal(Article meal) {
 		try {
 			articleDAO.delete(articleDAO.find(meal.getId()));
 		} catch (final SQLException e) {
@@ -171,23 +119,9 @@ public class ArticleManagerImpl implements ArticleManager {
 		}
 		return Boolean.TRUE;
 	}
-=======
-    @Override
-    @Transactional(readOnly = false)
-    public Boolean updateMeal(Meal meal) {
-    	try {
-    		articleDAO.update(meal);
-    	} catch (final SQLException e) {
-    		e.printStackTrace();
-    		return Boolean.FALSE;
-    	}
-    	return Boolean.TRUE;
-    }
->>>>>>> branch 'master' of https://github.com/TimmyParkwayd/FoodTruck
 
-<<<<<<< HEAD
-	@Override
 	@Transactional(readOnly = true)
+	@Override
 	public List<Article> getDrinkList() {
 		try {
 			return articleDAO.findAllDrink();
@@ -195,23 +129,9 @@ public class ArticleManagerImpl implements ArticleManager {
 			return null;
 		}
 	}
-=======
-    @Override
-    @Transactional(readOnly = false)
-    public Boolean removeDrink(Drink drink) {
-    	try {
-    		articleDAO.delete(articleDAO.find(drink.getId()));
-    	} catch (final SQLException e) {
-    		e.printStackTrace();
-    		return Boolean.FALSE;
-    	}
-    	return Boolean.TRUE;
-    }
->>>>>>> branch 'master' of https://github.com/TimmyParkwayd/FoodTruck
 
-<<<<<<< HEAD
-	@Override
 	@Transactional(readOnly = true)
+	@Override
 	public List<Article> getMealList() {
 		try {
 			return articleDAO.findAllMeal();
@@ -219,17 +139,4 @@ public class ArticleManagerImpl implements ArticleManager {
 			return null;
 		}
 	}
-=======
-    @Override
-    @Transactional(readOnly = false)
-    public Boolean removeMeal(Meal meal) {
-    	try {
-    		articleDAO.delete(articleDAO.find(meal.getId()));
-    	} catch (final SQLException e) {
-    		e.printStackTrace();
-    		return Boolean.FALSE;
-    	}
-    	return Boolean.TRUE;
-    }
->>>>>>> branch 'master' of https://github.com/TimmyParkwayd/FoodTruck
 }

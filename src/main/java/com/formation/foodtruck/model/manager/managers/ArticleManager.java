@@ -74,7 +74,7 @@ public interface ArticleManager {
 	 *            the drink to update
 	 * @return Boolean.TRUE if updated, else Boolean.FALSE if failed
 	 */
-	public Boolean updateDrink(Drink drink);
+	public Boolean updateDrink(Article drink);
 
 	/**
 	 * Method to update a meal information
@@ -83,7 +83,7 @@ public interface ArticleManager {
 	 *            the meal to update
 	 * @return Boolean.TRUE if updated, else Boolean.FALSE if failed
 	 */
-	public Boolean updateMeal(Meal meal);
+	public Boolean updateMeal(Article meal);
 
 	/**
 	 * Method to delete a drink
@@ -92,7 +92,7 @@ public interface ArticleManager {
 	 *            the drink to delete
 	 * @return Boolean.TRUE if deleted, else Boolean.FALSE if failed
 	 */
-	public Boolean removeDrink(Drink drink);
+	public Boolean removeDrink(Article drink);
 
 	/**
 	 * Method to delete a meal
@@ -101,6 +101,6 @@ public interface ArticleManager {
 	 *            the meal to delete
 	 * @return Boolean.TRUE if deleted, else Boolean.FALSE if failed
 	 */
-	public Boolean removeMeal(Meal meal);
+	public Boolean removeMeal(Article meal);
 
 }
