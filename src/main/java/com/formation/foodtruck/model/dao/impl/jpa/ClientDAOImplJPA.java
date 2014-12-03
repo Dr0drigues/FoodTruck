@@ -73,7 +73,10 @@ public class ClientDAOImplJPA implements ClientDAO {
 		if (id == null) {
 			return null;
 		}
-		Client client = entityManager.find(Client.class, id);
+		final Client client = entityManager.find(Client.class, id);
+		if (client == null){
+			return null;
+		}
 		return (client.isDelete()) ? null : client;
 	}
 
@@ -84,7 +87,7 @@ public class ClientDAOImplJPA implements ClientDAO {
 
 	@Override
 	public List<Client> findAll() {
-		final String request = "select * from articla a";
+		final String request = "select c from Client c";
 		final TypedQuery<Client> query = entityManager.createQuery(request,
 				Client.class);
 		return query.getResultList();

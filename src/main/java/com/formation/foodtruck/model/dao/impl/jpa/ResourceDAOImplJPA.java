@@ -84,14 +84,14 @@ public class ResourceDAOImplJPA implements ResourceDAO {
 
 	@Override
 	public List<Resource> findAllGear() {
-		final String request = "select * from resource r where type(r) = Gear";
+		final String request = "select r from Resource r where type(r) = Gear";
 		final TypedQuery<Resource> query = entityManager.createQuery(request, Resource.class);
 		return query.getResultList();
 	}
 
 	@Override
 	public List<Resource> findAllIngredient() {
-		final String request = "select * from resource r where type(r) = Ingredient";
+		final String request = "select r from Resource r where type(r) = Ingredient";
 		final TypedQuery<Resource> query = entityManager.createQuery(request, Resource.class);
 		return query.getResultList();
 	}
