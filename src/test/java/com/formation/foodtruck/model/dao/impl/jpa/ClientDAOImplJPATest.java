@@ -1,14 +1,8 @@
 package com.formation.foodtruck.model.dao.impl.jpa;
 
-import static org.junit.Assert.fail;
-
-import java.sql.SQLException;
-
-import javax.management.BadAttributeValueExpException;
-import javax.persistence.EntityManager;
-
+import com.formation.foodtruck.model.dao.ClientDAO;
+import com.formation.foodtruck.model.entity.Client;
 import junit.framework.Assert;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,8 +11,11 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import com.formation.foodtruck.model.dao.ClientDAO;
-import com.formation.foodtruck.model.entity.Client;
+import javax.management.BadAttributeValueExpException;
+import javax.persistence.EntityManager;
+import java.sql.SQLException;
+
+import static org.junit.Assert.fail;
 
 public class ClientDAOImplJPATest {
 
@@ -68,7 +65,7 @@ public class ClientDAOImplJPATest {
 			Assert.assertTrue(insert2);
 
 			Mockito.when(entityManager.find(Client.class, 1)).thenReturn(
-					clientCreate2);
+					clientCreate1);
 
 			final Client clientFound = clientDAO.find(1);
 			Assert.assertNotNull(clientFound);

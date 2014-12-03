@@ -17,14 +17,6 @@ public class ClientManagerImpl implements ClientManager {
     @Autowired
     private ClientDAO clientDAO;
 
-    public ClientDAO getClientDAO() {
-        return clientDAO;
-    }
-
-    public void setClientDAO(ClientDAO clientDAO) {
-        this.clientDAO = clientDAO;
-    }
-
     @Override
     @Transactional(readOnly = false)
     public Boolean addClient(Client client) {
@@ -73,11 +65,9 @@ public class ClientManagerImpl implements ClientManager {
     @Override
     @Transactional(readOnly = false)
     public Boolean removeClient(Client client) {
-        try {
-            clientDAO.delete(clientDAO.find(client.getId()));
-        } catch (final SQLException e) {
-            e.printStackTrace();
-            return Boolean.FALSE;
+        if (!client.isDelete()) {
+            client.setDelete(true);
+            updateClient(client);
         }
         return Boolean.TRUE;
     }

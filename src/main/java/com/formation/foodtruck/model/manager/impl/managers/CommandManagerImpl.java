@@ -17,14 +17,6 @@ public class CommandManagerImpl implements CommandManager {
     @Autowired
     private CommandDAO commandDAO;
 
-    public CommandDAO getCommandDAO() {
-        return commandDAO;
-    }
-
-    public void setCommandDAO(CommandDAO commandDAO) {
-        this.commandDAO = commandDAO;
-    }
-
     @Override
     @Transactional(readOnly = false)
     public Boolean addCommand(Command command) {
