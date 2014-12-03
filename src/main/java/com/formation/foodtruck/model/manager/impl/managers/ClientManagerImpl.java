@@ -41,7 +41,7 @@ public class ClientManagerImpl implements ClientManager {
 		return Boolean.TRUE;
 
 	}
-
+	
 	@Override
 	public Client getClient(Integer id) throws SQLException {
 		return clientDAO.find(id);
@@ -74,4 +74,5 @@ public class ClientManagerImpl implements ClientManager {
 		}
 		return Boolean.TRUE;
 	}
+
 }
