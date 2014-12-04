@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.formation.foodtruck.model.entity.Article;
 import com.formation.foodtruck.model.entity.Drink;
+import com.formation.foodtruck.model.entity.Provider;
 import com.formation.foodtruck.model.entity.TypeDrink;
 import com.formation.foodtruck.model.entity.VolumeDrink;
 import com.formation.foodtruck.model.manager.impl.managers.ArticleManagerImpl;
+import com.formation.foodtruck.model.manager.impl.managers.ProviderManagerImpl;
 
 /**
  * @author Administrateur
@@ -30,6 +32,8 @@ public class ArticleController {
 
 	@Autowired
 	private ArticleManagerImpl articleManager;
+	@Autowired
+	private ProviderManagerImpl providerManager;
 
 	@RequestMapping(value = "drinks", method = RequestMethod.GET)
 	public String printDrinks(ModelMap model) {
@@ -44,10 +48,13 @@ public class ArticleController {
 		Drink drinkTest;
 		boolean flag = false;
 		try {
+			Provider provider = new Provider("test");
+			flag = providerManager.addProvider(provider);
+
 			drinkTest = new Drink("Boisson Test", "test", 11,
 					VolumeDrink.VOLUME25, TypeDrink.COLDSOFT);
 
-			flag = articleManager.addDrink(drinkTest);
+			articleManager.addDrink(drinkTest);
 		} catch (BadAttributeValueExpException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
