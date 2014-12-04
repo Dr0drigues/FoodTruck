@@ -76,14 +76,14 @@
 
 		<form:form role="form" action="${actionformulaire}" method="POST"
 			commandName="drink">
-			<form:hidden path="id" />
+<%-- 			<form:hidden path="id" /> --%>
 
 			<div class="form-group">
 				<form:label path="name">Nom</form:label>
 				<form:input path="name" class="form-control" />
 			</div>
 			<div class="form-group">
-				<form:label path="description">Nom</form:label>
+				<form:label path="description">Description</form:label>
 				<form:input path="description" class="form-control" />
 			</div>
 			<div class="form-group">
@@ -102,6 +102,7 @@
 					<form:options items="${listTypeDrink}" />
 				</form:select>
 			</div>
+			<div id="error" style="display:none">Une erreur s'est produite</div>
 
 <%-- 			<input type="submit" class="btn btn-default" value="${libellebouton}"> --%>
 		</form:form>

@@ -13,15 +13,13 @@ import com.formation.foodtruck.model.dao.ArticleDAO;
 import com.formation.foodtruck.model.entity.Article;
 
 @Repository
-public class ArticleDAOImplJPA implements ArticleDAO{
-
+public class ArticleDAOImplJPA implements ArticleDAO {
 
 	@PersistenceContext
 	/**
 	 * Appel de l'entityManager pour intégration en base
 	 */
 	private EntityManager entityManager;
-
 
 	/**
 	 * Méthode de création d'un article en base
@@ -30,7 +28,7 @@ public class ArticleDAOImplJPA implements ArticleDAO{
 
 	@Override
 	public boolean create(Article article) throws SQLException {
-		if (article == null){
+		if (article == null) {
 			return false;
 		}
 		entityManager.persist(article);
@@ -44,13 +42,12 @@ public class ArticleDAOImplJPA implements ArticleDAO{
 
 	@Override
 	public boolean delete(Article article) throws SQLException {
-		if (article == null){
+		if (article == null) {
 			return false;
 		}
 		entityManager.remove(article);
 		return true;
 	}
-
 
 	/**
 	 * Méthode de modification d'un article en base
@@ -59,7 +56,7 @@ public class ArticleDAOImplJPA implements ArticleDAO{
 
 	@Override
 	public boolean update(Article article) throws SQLException {
-		if (article == null){
+		if (article == null) {
 			return false;
 		}
 		entityManager.merge(article);
@@ -73,30 +70,32 @@ public class ArticleDAOImplJPA implements ArticleDAO{
 
 	@Override
 	public Article find(Integer id) throws SQLException {
-		if (id == null){
+		if (id == null) {
 			return null;
 		}
 		return entityManager.find(Article.class, id);
 	}
 
 	/**
-	 * méthode pour récupérer tous les articles de la base stockés dans une liste
-	 * création d'une requête  qui recense tous les plats ou boissons puis affichage via l'entityManager
+	 * méthode pour récupérer tous les articles de la base stockés dans une
+	 * liste création d'une requête qui recense tous les plats ou boissons puis
+	 * affichage via l'entityManager
 	 */
 
 	@Override
 	public List<Article> findAllMeal() {
 		final String request = "select a from Article a where type(a) = Meal";
-		final TypedQuery<Article> query = entityManager.createQuery(request, Article.class);
+		final TypedQuery<Article> query = entityManager.createQuery(request,
+				Article.class);
 		return query.getResultList();
 	}
 
 	@Override
 	public List<Article> findAllDrink() {
 		final String request = "select a from Article a where type(a) = Drink";
-		final TypedQuery<Article> query = entityManager.createQuery(request, Article.class);
+		final TypedQuery<Article> query = entityManager.createQuery(request,
+				Article.class);
 		return query.getResultList();
 	}
-
 
 }

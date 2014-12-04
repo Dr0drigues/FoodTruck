@@ -5,6 +5,8 @@ package com.formation.foodtruck.controller;
 
 import java.util.List;
 
+import javax.management.BadAttributeValueExpException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -39,6 +41,20 @@ public class ArticleController {
 		model.addAttribute("listdrink", list);
 		model.addAttribute("drink", new Drink());
 
+		Drink drinkTest;
+		boolean flag = false;
+		try {
+			drinkTest = new Drink("Boisson Test", "test", 11,
+					VolumeDrink.VOLUME25, TypeDrink.COLDSOFT);
+
+			flag = articleManager.addDrink(drinkTest);
+		} catch (BadAttributeValueExpException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		System.out.println("Test: " + flag);
+
 		return "drinks";
 	}
 
@@ -65,8 +81,9 @@ public class ArticleController {
 		if (drink == null || drink.getName() == null
 				|| drink.getDescription() == null || drink.getPrice() == null
 				|| drink.getName().isEmpty()
-				|| drink.getDescription().isEmpty())
-			return "adddrink";
+				|| drink.getDescription().isEmpty()) {
+			return "redirect:drinks";
+		}
 
 		System.out
 				.println("*****************************BITE*******************************\n"

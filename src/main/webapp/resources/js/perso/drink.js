@@ -42,30 +42,35 @@ $(document).ready(function() {
 		var table = $(this).parent().parent().parent();
 
 		// On créé la boite de dialogue
-		$("#dialog-drink").dialog({			
+		$("#dialog-drink").dialog({
 			resizable : false,
-			height : 680,
+			height : 600,
+			width : 200,
 			modal : true,
-			
+
 			buttons : {
 				"Add" : function() {
-					// On appel notre url en arrière plan
-					alert(href);
-					$.get(href, function(data) {
-						// On ajoute la ligne une fois l'ajout effectué sur le
-						// serveur
-						// ...						
+					var drink = $("form#drink").serialize();
+					$.ajax({
+						url : href,
+						type : 'post',
+						data : drink,
+						success : function(data) {
+							alert("datas ajoutés via AJAX, drink : " + drink);
+						},
+						error : function() {
+							alert("erreur AJAX, drink : " + drink);
+						}
 					});
-					// On ferme la boite de dialogue
 					$("#dialog-drink").dialog("close");
 				},
 				Cancel : function() {
 					// On ferme la boite de dialogue
+					$("form#drink").reset();
 					$("#dialog-drink").dialog("close");
 				}
-			} 
-		});		
-		
+			}
+		});
 
 	});
 
