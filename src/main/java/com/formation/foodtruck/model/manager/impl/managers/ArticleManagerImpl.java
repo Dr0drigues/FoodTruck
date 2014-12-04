@@ -31,11 +31,6 @@ public class ArticleManagerImpl implements ArticleManager {
 		try {
 			articleDAO.create(drink);
 		} catch (SQLException e) {
-			try {
-				articleDAO.delete(drink);
-			} catch (SQLException e1) {
-				e1.printStackTrace();
-			}
 			e.printStackTrace();
 			return Boolean.FALSE;
 		}
@@ -63,11 +58,13 @@ public class ArticleManagerImpl implements ArticleManager {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public Drink getDrink(Integer id) throws SQLException {
 		return (Drink) articleDAO.find(id);
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public Meal getMeal(Integer id) throws SQLException {
 		return (Meal) articleDAO.find(id);
 	}

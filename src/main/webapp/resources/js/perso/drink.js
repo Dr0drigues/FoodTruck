@@ -19,7 +19,8 @@ $(document).ready(function() {
 				"Delete" : function() {
 					// On appel notre url en arrière plan
 					$.get(href, function(data) {
-						// On supprime la ligne une fois la suppression faite
+						// On supprime la ligne une fois la
+						// suppression faite
 						// sur le serveur
 						ligne.remove();
 					});
@@ -56,17 +57,41 @@ $(document).ready(function() {
 						type : 'post',
 						data : drink,
 						success : function(data) {
-							alert("datas ajoutés via AJAX, drink : " + drink);
+							//$("table#tableDrink").fnReloadAjax();
+
+							 $(
+							 '#tableDrink tbody')
+							 .append(
+							 "<tr><td>"
+							 + document
+							 .getElementById('name').value
+							 + "</td><td>"
+							 + document
+							 .getElementById('description').value
+							 + "</td><td>"
+							 + document
+							 .getElementById('price').value
+							 + "</td><td>"
+							 + document
+							 .getElementById('volume').value
+							 + "</td><td>"
+							 + document
+							 .getElementById('type').value
+							 + "</td></tr>");
+
 						},
 						error : function() {
-							alert("erreur AJAX, drink : " + drink);
+
 						}
 					});
 					$("#dialog-drink").dialog("close");
 				},
 				Cancel : function() {
-					// On ferme la boite de dialogue
-					$("form#drink").reset();
+					// On ferme
+					// la boite
+					// de
+					// dialogue
+					$("form#drink")[0].reset();
 					$("#dialog-drink").dialog("close");
 				}
 			}

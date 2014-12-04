@@ -7,11 +7,11 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 
-import com.formation.foodtruck.model.dao.ProviderDAO;
-import com.formation.foodtruck.model.entity.Provider;
+import com.formation.foodtruck.model.dao.MyProviderDAO;
+import com.formation.foodtruck.model.entity.MyProvider;
 
 @Repository
-public class ProviderDAOImplJPA implements ProviderDAO{
+public class MyProviderDAOImplJPA implements MyProviderDAO{
 
 	@PersistenceContext
 	/**
@@ -25,7 +25,7 @@ public class ProviderDAOImplJPA implements ProviderDAO{
 	 *
 	 */
 	@Override
-	public boolean create(Provider provider) throws SQLException {
+	public boolean create(MyProvider provider) throws SQLException {
 		if (provider == null){
 			return false;
 		}
@@ -39,7 +39,7 @@ public class ProviderDAOImplJPA implements ProviderDAO{
 	 */
 
 	@Override
-	public boolean delete(Provider provider) throws SQLException {
+	public boolean delete(MyProvider provider) throws SQLException {
 		if (provider == null){
 			return false;
 		}
@@ -53,7 +53,7 @@ public class ProviderDAOImplJPA implements ProviderDAO{
 	 */
 
 	@Override
-	public boolean update(Provider provider) throws SQLException {
+	public boolean update(MyProvider provider) throws SQLException {
 		if (provider == null){
 			return false;
 		}
@@ -67,11 +67,11 @@ public class ProviderDAOImplJPA implements ProviderDAO{
 	 */
 
 	@Override
-	public Provider find(Integer id) throws SQLException {
+	public MyProvider find(Integer id) throws SQLException {
 		if (id == null){
 			return null;
 		}
-		return entityManager.find(Provider.class, id);
+		return entityManager.find(MyProvider.class, id);
 	}
 
 }

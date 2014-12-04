@@ -46,7 +46,7 @@ public class Ingredient extends Resource {
 	 * @param provider
 	 * @throws BadAttributeValueExpException
 	 */
-	public Ingredient(String name, Provider provider, TypeIngredient type)
+	public Ingredient(String name, MyProvider provider, TypeIngredient type)
 			throws BadAttributeValueExpException {
 		super(name, provider);
 		if (type == null)

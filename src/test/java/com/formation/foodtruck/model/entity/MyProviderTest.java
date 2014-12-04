@@ -7,13 +7,13 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ProviderTest {
+public class MyProviderTest {
 
-	private Provider providerOk = null;
+	private MyProvider providerOk = null;
 
 	@Before
 	public void setUp() throws Exception {
-		providerOk = new Provider("nom");
+		providerOk = new MyProvider("nom");
 	}
 
 	@Test
@@ -26,27 +26,27 @@ public class ProviderTest {
 
 	@Test(expected = BadAttributeValueExpException.class)
 	public void testProviderNameNull() throws BadAttributeValueExpException {
-		final Provider providerNameNull = new Provider(null);
+		final MyProvider providerNameNull = new MyProvider(null);
 		Assert.assertNull(providerNameNull);
 	}
 
 	@Test(expected = BadAttributeValueExpException.class)
 	public void testSetNameNull() throws BadAttributeValueExpException {
-		Provider providerNameNull = providerOk;
+		MyProvider providerNameNull = providerOk;
 		providerNameNull.setName(null);
 		Assert.assertNull(providerNameNull);
 	}
 
 	@Test(expected = BadAttributeValueExpException.class)
 	public void testSetNameVide() throws BadAttributeValueExpException {
-		Provider providerNameNull = providerOk;
+		MyProvider providerNameNull = providerOk;
 		providerNameNull.setName("");
 		Assert.assertNull(providerNameNull);
 	}
 
 	@Test(expected = BadAttributeValueExpException.class)
 	public void testSetIdNull() throws BadAttributeValueExpException {
-		Provider providerIdNull = providerOk;
+		MyProvider providerIdNull = providerOk;
 		providerIdNull.setId(null);
 		Assert.assertNull(providerIdNull);
 	}

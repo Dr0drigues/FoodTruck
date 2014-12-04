@@ -16,7 +16,7 @@
 			class="btn btn-default" id="add">Ajouter un article</a>
 
 	</div>
-	<table class="table-striped table-hover" width="100%">
+	<table class="table-striped table-hover" id="tableDrink" width="100%">
 		<thead>
 			<tr align="center">
 				<th>Numéro</th>
@@ -31,15 +31,14 @@
 			<c:forEach var="drink" items="${listdrink}">
 				<tr align="center">
 					<td>${drink.id}</td>
-					<td>${drink.nom}</td>
-					<td>${drink.prix}</td>
+					<td>${drink.name}</td>
+					<td>${drink.price}</td>
 					<td>${drink.volume}</td>
 					<td>${drink.type}</td>
 					<td><a
 						href="${pageContext.request.contextPath}/article/delete/${drink.id}"
 						class="btn btn-danger btn-sm delete"> - </a></td>
-				</tr>
-				</tr>
+				</tr>				
 			</c:forEach>
 		</tbody>
 	</table>

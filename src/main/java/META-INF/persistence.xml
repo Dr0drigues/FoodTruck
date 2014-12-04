@@ -9,12 +9,12 @@
 		<class>com.formation.foodtruck.model.entity.Gear</class>
 		<class>com.formation.foodtruck.model.entity.Ingredient</class>
 		<class>com.formation.foodtruck.model.entity.Meal</class>
-		<class>com.formation.foodtruck.model.entity.Provider</class>
+		<class>com.formation.foodtruck.model.entity.MyProvider</class>
 		<class>com.formation.foodtruck.model.entity.Resource</class>
 		<properties>
 		    <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 		    <property name="hibernate.showSql" value="true" />
- 		    <!-- <property name="hibernate.hbm2ddl.auto" value="create-drop" /> -->
+ 		    <!-- <property name="hibernate.hbm2ddl.auto" value="create" /> -->
 		    <property name="hibernate.connection.autocommit" value="true" />
 		</properties>
 	</persistence-unit>

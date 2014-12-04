@@ -3,7 +3,7 @@ package com.formation.foodtruck.model.manager.impl.managers;
 import com.formation.foodtruck.model.dao.ResourceDAO;
 import com.formation.foodtruck.model.entity.Gear;
 import com.formation.foodtruck.model.entity.Ingredient;
-import com.formation.foodtruck.model.entity.Provider;
+import com.formation.foodtruck.model.entity.MyProvider;
 import com.formation.foodtruck.model.entity.TypeIngredient;
 import com.formation.foodtruck.model.manager.managers.ResourceManager;
 import junit.framework.Assert;
@@ -38,8 +38,8 @@ public class ResourceManagerImplTest {
     public void testAddGear() throws BadAttributeValueExpException {
 
         try {
-            Gear resourceAdd1 = new Gear("name", new Provider("namae"));
-            Gear resourceAdd2 = new Gear("name2", new Provider("nombre"));
+            Gear resourceAdd1 = new Gear("name", new MyProvider("namae"));
+            Gear resourceAdd2 = new Gear("name2", new MyProvider("nombre"));
 
             when(resourceDAO.create(resourceAdd1)).thenReturn(true);
             when(resourceDAO.create(resourceAdd2)).thenReturn(true);
@@ -66,9 +66,9 @@ public class ResourceManagerImplTest {
     @Test
     public void testGetGear() throws BadAttributeValueExpException {
         try {
-            final Gear resourceCreate1 = new Gear("name", new Provider("namae"));
-            final Gear resourceCreate2 = new Gear("name2", new Provider("nombre"));
-            final Gear resourceCreate3 = new Gear("name3", new Provider("nome"));
+            final Gear resourceCreate1 = new Gear("name", new MyProvider("namae"));
+            final Gear resourceCreate2 = new Gear("name2", new MyProvider("nombre"));
+            final Gear resourceCreate3 = new Gear("name3", new MyProvider("nome"));
             resourceDAO.create(resourceCreate1);
             resourceDAO.create(resourceCreate2);
             resourceDAO.create(resourceCreate3);
@@ -98,14 +98,14 @@ public class ResourceManagerImplTest {
     @Test
     public void testUpdateGear() throws Exception {
         // Gear OK
-        final Gear resourceCreate1 = new Gear("name2", new Provider("nombre"));
+        final Gear resourceCreate1 = new Gear("name2", new MyProvider("nombre"));
         resourceDAO.create(resourceCreate1);
         when(resourceDAO.update(resourceCreate1)).thenReturn(true);
         final Boolean update1 = resourceDAO.update(resourceCreate1);
         assertTrue(update1);
 
         // Gear avec un nom modifier
-        final Gear resourceCreateAndSetName = new Gear("name2", new Provider("nombre"));
+        final Gear resourceCreateAndSetName = new Gear("name2", new MyProvider("nombre"));
         resourceDAO.create(resourceCreateAndSetName);
         resourceCreateAndSetName.setName("lastName");
         when(resourceDAO.update(resourceCreateAndSetName)).thenReturn(true);
@@ -123,9 +123,9 @@ public class ResourceManagerImplTest {
     @Test
     public void testRemoveGear() throws Exception {
         try {
-            final Gear resourceCreate1 = new Gear("name1", new Provider("namae"));
-            final Gear resourceCreate2 = new Gear("name2", new Provider("nombre"));
-            final Gear resourceCreate3 = new Gear("name3", new Provider("nome"));
+            final Gear resourceCreate1 = new Gear("name1", new MyProvider("namae"));
+            final Gear resourceCreate2 = new Gear("name2", new MyProvider("nombre"));
+            final Gear resourceCreate3 = new Gear("name3", new MyProvider("nome"));
             resourceDAO.create(resourceCreate1);
             resourceDAO.create(resourceCreate2);
             resourceDAO.create(resourceCreate3);
@@ -152,8 +152,8 @@ public class ResourceManagerImplTest {
     public void testAddIngredient() throws BadAttributeValueExpException {
 
         try {
-            Ingredient resourceAdd1 = new Ingredient("name", new Provider("namae"), TypeIngredient.MEAT);
-            Ingredient resourceAdd2 = new Ingredient("name2", new Provider("nombre"), TypeIngredient.MEAT);
+            Ingredient resourceAdd1 = new Ingredient("name", new MyProvider("namae"), TypeIngredient.MEAT);
+            Ingredient resourceAdd2 = new Ingredient("name2", new MyProvider("nombre"), TypeIngredient.MEAT);
 
             when(resourceDAO.create(resourceAdd1)).thenReturn(true);
             when(resourceDAO.create(resourceAdd2)).thenReturn(true);
@@ -180,9 +180,9 @@ public class ResourceManagerImplTest {
     @Test
     public void testGetIngredient() throws BadAttributeValueExpException {
         try {
-            final Ingredient resourceCreate1 = new Ingredient("name", new Provider("namae"), TypeIngredient.MEAT);
-            final Ingredient resourceCreate2 = new Ingredient("name2", new Provider("nombre"), TypeIngredient.MEAT);
-            final Ingredient resourceCreate3 = new Ingredient("name3", new Provider("nome"), TypeIngredient.MEAT);
+            final Ingredient resourceCreate1 = new Ingredient("name", new MyProvider("namae"), TypeIngredient.MEAT);
+            final Ingredient resourceCreate2 = new Ingredient("name2", new MyProvider("nombre"), TypeIngredient.MEAT);
+            final Ingredient resourceCreate3 = new Ingredient("name3", new MyProvider("nome"), TypeIngredient.MEAT);
             resourceDAO.create(resourceCreate1);
             resourceDAO.create(resourceCreate2);
             resourceDAO.create(resourceCreate3);
@@ -212,14 +212,14 @@ public class ResourceManagerImplTest {
     @Test
     public void testUpdateIngredient() throws Exception {
         // Ingredient OK
-        final Ingredient resourceCreate1 = new Ingredient("name2", new Provider("nombre"), TypeIngredient.MEAT);
+        final Ingredient resourceCreate1 = new Ingredient("name2", new MyProvider("nombre"), TypeIngredient.MEAT);
         resourceDAO.create(resourceCreate1);
         when(resourceDAO.update(resourceCreate1)).thenReturn(true);
         final Boolean update1 = resourceDAO.update(resourceCreate1);
         assertTrue(update1);
 
         // Ingredient avec un nom modifier
-        final Ingredient resourceCreateAndSetName = new Ingredient("name2", new Provider("nombre"), TypeIngredient.MEAT);
+        final Ingredient resourceCreateAndSetName = new Ingredient("name2", new MyProvider("nombre"), TypeIngredient.MEAT);
         resourceDAO.create(resourceCreateAndSetName);
         resourceCreateAndSetName.setName("lastName");
         when(resourceDAO.update(resourceCreateAndSetName)).thenReturn(true);
@@ -237,9 +237,9 @@ public class ResourceManagerImplTest {
     @Test
     public void testRemoveIngredient() throws Exception {
         try {
-            final Ingredient resourceCreate1 = new Ingredient("name1", new Provider("namae"), TypeIngredient.MEAT);
-            final Ingredient resourceCreate2 = new Ingredient("name2", new Provider("nombre"), TypeIngredient.MEAT);
-            final Ingredient resourceCreate3 = new Ingredient("name3", new Provider("nome"), TypeIngredient.MEAT);
+            final Ingredient resourceCreate1 = new Ingredient("name1", new MyProvider("namae"), TypeIngredient.MEAT);
+            final Ingredient resourceCreate2 = new Ingredient("name2", new MyProvider("nombre"), TypeIngredient.MEAT);
+            final Ingredient resourceCreate3 = new Ingredient("name3", new MyProvider("nome"), TypeIngredient.MEAT);
             resourceDAO.create(resourceCreate1);
             resourceDAO.create(resourceCreate2);
             resourceDAO.create(resourceCreate3);

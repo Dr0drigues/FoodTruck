@@ -1,11 +1,10 @@
 package com.formation.foodtruck.model.dao;
 
-import com.formation.foodtruck.model.entity.CommandLine;
-
 import java.util.List;
 
-public interface CommandLineDAO extends DAO<CommandLine> {
+import com.formation.foodtruck.model.entity.CommandLine;
 
+public interface CommandLineDAO extends DAO<CommandLine> {
 
 	/**
 	 * Find all.

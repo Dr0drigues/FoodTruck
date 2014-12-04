@@ -21,12 +21,12 @@ import com.formation.foodtruck.model.dao.ResourceDAO;
 import com.formation.foodtruck.model.entity.Command;
 import com.formation.foodtruck.model.entity.Gear;
 import com.formation.foodtruck.model.entity.Ingredient;
-import com.formation.foodtruck.model.entity.Provider;
+import com.formation.foodtruck.model.entity.MyProvider;
 import com.formation.foodtruck.model.entity.Resource;
 import com.formation.foodtruck.model.entity.TypeIngredient;
 
 public class ResourceDAOImplJPATest {
-	Provider provider = null;
+	MyProvider provider = null;
 
 	@Mock
 	private final EntityManager entityManager = Mockito.mock(EntityManager.class);
@@ -44,7 +44,7 @@ public class ResourceDAOImplJPATest {
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
 
-		provider = new Provider("Fournisseur");
+		provider = new MyProvider("Fournisseur");
 	}
 
 	/**

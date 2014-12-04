@@ -24,7 +24,7 @@ public class Gear extends Resource {
 	 * @param name
 	 * @throws BadAttributeValueExpException
 	 */
-	public Gear(String name, Provider provider)
+	public Gear(String name, MyProvider provider)
 			throws BadAttributeValueExpException {
 		super(name, provider);
 	}

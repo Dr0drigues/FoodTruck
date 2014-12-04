@@ -1,8 +1,8 @@
 package com.formation.foodtruck.model.dao;
 
-import com.formation.foodtruck.model.entity.Client;
-
 import java.util.List;
+
+import com.formation.foodtruck.model.entity.Client;
 
 public interface ClientDAO extends DAO<Client> {
 
