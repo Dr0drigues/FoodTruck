@@ -7,6 +7,9 @@
 <!-- JQuery UI Core -->
 <link href="${pageContext.request.contextPath}/resources/css/jqueryui/jquery-ui.min.css" rel="stylesheet">
 
+<!-- Bootstrap datatables core -->
+<link href="//cdn.datatables.net/plug-ins/9dcbecd42ad/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+
 <!-- MetisMenu -->
 <link href="${pageContext.request.contextPath}/resources/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
 
