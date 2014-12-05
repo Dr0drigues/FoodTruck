@@ -41,3 +41,7 @@
 <!-- Drinks JavaScript -->
 <script
 	src="${pageContext.request.contextPath}/resources/js/perso/drink.js"></script>
+	
+	<!-- Client JavaScript -->
+<script
+	src="${pageContext.request.contextPath}/resources/js/perso/client.js"></script>
