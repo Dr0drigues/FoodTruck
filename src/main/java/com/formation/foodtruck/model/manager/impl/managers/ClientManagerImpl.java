@@ -41,7 +41,7 @@ public class ClientManagerImpl implements ClientManager {
 		return Boolean.TRUE;
 
 	}
-	
+
 	@Override
 	public Client getClient(Integer id) throws SQLException {
 		return clientDAO.find(id);
@@ -67,11 +67,13 @@ public class ClientManagerImpl implements ClientManager {
 
 	@Override
 	@Transactional(readOnly = false)
-	public Boolean removeClient(Client client) {
+	public Boolean removeClient(Client client) throws SQLException {
+
 		if (!client.isDelete()) {
 			client.setDelete(true);
-			this.updateClient(client);
+			clientDAO.delete(client);
 		}
+
 		return Boolean.TRUE;
 	}
 

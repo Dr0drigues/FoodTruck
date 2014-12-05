@@ -5,8 +5,8 @@ import java.util.List;
 
 import javax.management.BadAttributeValueExpException;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,78 +19,103 @@ import com.formation.foodtruck.model.manager.managers.ClientManager;
 
 
 @Controller
-@RequestMapping("/clientList")
+@RequestMapping("/client")
 public class ClientController {
 
-	@Autowired
+
 	private ClientManager clientManager;
 	private ApplicationContext ctx;
 
+
+	public void init() {
+		ctx = new ClassPathXmlApplicationContext("spring.xml");
+		clientManager = (ClientManager) ctx.getBean("clientManagerImpl");
+	}
+
 	@RequestMapping(method = RequestMethod.GET)
 	public String printClient(ModelMap model) {
-
+		this.init();
 		final List<Client> list = clientManager.getClientList();
 		model.addAttribute("clientlist", list);
+		final Client client = new Client();
+		model.addAttribute("addclient", client);
 		return "client";
 	}
 
-	@RequestMapping("/addClient")
-	public String showFormAddClient(ModelMap model) {
-
-		final Client client = new Client();
-		model.addAttribute("addClient", client);
-		return "addClient";
+	@RequestMapping(value = "addclient", method = RequestMethod.GET)
+	public String showClient(@ModelAttribute("addclient") Client client, ModelMap model) {
+		this.init();
+		return "client";
 	}
 
-	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String handleFormAddClient(
-			@ModelAttribute("addClient") Client client, ModelMap model) {
 
+	@RequestMapping(value = "addclient", method = RequestMethod.POST)
+	public String AddClient(
+			@ModelAttribute("addclient") Client client, ModelMap model) {
+		this.init();
 		if (client != null && client.getLastName() != null
 				&& !client.getLastName().isEmpty() && client.getFirstName() != null
-				&& !client.getFirstName().isEmpty()) {
+				&& !client.getFirstName().isEmpty()
+				&& client.getMail() != null
+				&& !client.getMail().isEmpty() && client.getPassword() != null
+				&& !client.getPassword().isEmpty()) {
 			clientManager.addClient(client);
-			return "redirect:/clientList";
+			return "redirect:/client";
 		}
-
-		model.addAttribute("addClient", client);
-		return "addClient";
-
+		return "redirect:/client";
 	}
 
-	@RequestMapping("/clientUpdate/{clientId}")
-	public String showFormModifClient(ModelMap model,
-			@PathVariable("clientId") Integer clientId) throws SQLException {
 
+	@RequestMapping("/update/{clientId}")
+	public String UpdateClient(ModelMap model,
+			@PathVariable("clientId") Integer clientId) throws SQLException {
+		this.init();
 		final Client client = clientManager.getClient(clientId);
-		model.addAttribute("clientUpdate", client);
-		return "clientUpdate";
+		model.addAttribute("update", client);
+		return "client";
 	}
 
 	@RequestMapping(value = "/edit/{clientId}", method = RequestMethod.POST)
-	public String handleFormModifClient(
-			@ModelAttribute("clientUpdate") Client client,
+	public String UpdateClient(
+			@ModelAttribute("update") Client client,
 			@PathVariable("clientId") Integer clientId, ModelMap model) throws BadAttributeValueExpException {
-
+		this.init();
 		if (client != null && client.getLastName() != null
 				&& !client.getLastName().isEmpty() && client.getFirstName() != null
-				&& !client.getFirstName().isEmpty()) {
+				&& !client.getFirstName().isEmpty()
+				&& client.getMail() != null
+				&& !client.getMail().isEmpty() && client.getPassword() != null
+				&& !client.getPassword().isEmpty()){
 
 			client.setId(clientId);
 			clientManager.updateClient(client);
 			return "redirect:/client";
 		}
 
-		model.addAttribute("clientUpdate", client);
-		return "clientUpdate";
+		model.addAttribute("update", client);
+		return "client";
 
 	}
 
 	@RequestMapping(value = "/delete/{clientId}", method = RequestMethod.GET)
-	public String handleFormSupprClient(
-			@PathVariable("clientId") Integer clientId, ModelMap model) {
+	public String DeleteClientGet(
+			@PathVariable("clientId") Integer clientId, ModelMap model) throws SQLException {
+		this.init();
+		final Client client = clientManager.getClient(clientId);
+		clientManager.removeClient(client);
+		return "redirect:/client";
 
-		clientManager.removeClient(null);
+	}
+
+	@RequestMapping(value = "/delete/{clientId}", method = RequestMethod.POST)
+	public String DeleteClientPost(
+			@PathVariable("clientId") Integer clientId, ModelMap model) throws SQLException {
+		this.init();
+		final Client client = clientManager.getClient(clientId);
+		if (clientId != null){
+			clientManager.removeClient(client);
+		}
+
 		return "redirect:/client";
 
 	}

@@ -15,10 +15,11 @@ import com.formation.foodtruck.model.entity.Client;
 @Repository
 public class ClientDAOImplJPA implements ClientDAO {
 
-	@PersistenceContext
+
 	/**
 	 * Appel de l'entityManager pour intégration en base
 	 */
+	@PersistenceContext
 	private EntityManager entityManager;
 
 	/**
@@ -45,7 +46,8 @@ public class ClientDAOImplJPA implements ClientDAO {
 		if (client == null) {
 			return false;
 		}
-		entityManager.remove(client);
+		//entityManager.remove(client);
+		entityManager.merge(client);
 		return true;
 	}
 
@@ -87,7 +89,7 @@ public class ClientDAOImplJPA implements ClientDAO {
 
 	@Override
 	public List<Client> findAll() {
-		final String request = "select c from Client c";
+		final String request = "select c from Client c where c.delete = false";
 		final TypedQuery<Client> query = entityManager.createQuery(request,
 				Client.class);
 		return query.getResultList();
