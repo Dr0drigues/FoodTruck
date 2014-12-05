@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -24,9 +25,10 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class ClientManagerImplTest {
 
-    private ClientManager clientManager;
-
     @InjectMocks
+    private ClientManager clientManager = Mockito.mock(ClientManagerImpl.class);
+
+    @Mock
     private ClientDAO clientDAO = Mockito.mock(ClientDAO.class);
 
     @Before

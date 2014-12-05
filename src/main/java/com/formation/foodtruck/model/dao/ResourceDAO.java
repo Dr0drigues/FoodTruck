@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.formation.foodtruck.model.entity.Resource;
 
-public interface ResourceDAO extends DAO<Resource>{
+public interface ResourceDAO extends DAO<Resource> {
 
 	/**
 	 * Find all.
@@ -12,5 +12,6 @@ public interface ResourceDAO extends DAO<Resource>{
 	 * @return the list
 	 */
 	List<Resource> findAllGear();
+
 	List<Resource> findAllIngredient();
 }

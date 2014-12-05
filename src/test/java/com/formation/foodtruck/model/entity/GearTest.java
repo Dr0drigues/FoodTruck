@@ -17,7 +17,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class GearTest {
 
 	@Mock
-	private final Provider provider = Mockito.mock(Provider.class);
+	private final MyProvider provider = Mockito.mock(MyProvider.class);
 
 	@InjectMocks
 	private Gear gearOk = new Gear();

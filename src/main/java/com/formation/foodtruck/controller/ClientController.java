@@ -17,19 +17,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.formation.foodtruck.model.entity.Client;
 import com.formation.foodtruck.model.manager.managers.ClientManager;
 
-
 @Controller
 @RequestMapping("/client")
 public class ClientController {
 
 
+
 	private ClientManager clientManager;
 	private ApplicationContext ctx;
 
-
 	public void init() {
 		ctx = new ClassPathXmlApplicationContext("spring.xml");
-		clientManager = (ClientManager) ctx.getBean("clientManagerImpl");
+		clientManager = ctx.getBean("clientManagerImpl", ClientManager.class);
+
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
@@ -75,12 +75,14 @@ public class ClientController {
 		return "client";
 	}
 
-	@RequestMapping(value = "/edit/{clientId}", method = RequestMethod.POST)
-	public String UpdateClient(
-			@ModelAttribute("update") Client client,
-			@PathVariable("clientId") Integer clientId, ModelMap model) throws BadAttributeValueExpException {
-		this.init();
+
+	public String handleFormModifClient(
+			@ModelAttribute("clientUpdate") Client client,
+			@PathVariable("clientId") Integer clientId, ModelMap model)
+			throws BadAttributeValueExpException {
+init();
 		if (client != null && client.getLastName() != null
+
 				&& !client.getLastName().isEmpty() && client.getFirstName() != null
 				&& !client.getFirstName().isEmpty()
 				&& client.getMail() != null

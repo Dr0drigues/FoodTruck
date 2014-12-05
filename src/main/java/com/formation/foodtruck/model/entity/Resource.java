@@ -25,7 +25,7 @@ public abstract class Resource {
 	private Integer id;
 	private String name;
 	@OneToOne
-	private Provider provider;
+	private MyProvider provider;
 
 	/**
 	 * 
@@ -34,7 +34,7 @@ public abstract class Resource {
 		super();
 	}
 
-	public Resource(String name, Provider provider)
+	public Resource(String name, MyProvider provider)
 			throws BadAttributeValueExpException {
 		super();
 		if (name == null || name.isEmpty() || provider == null)
@@ -82,7 +82,7 @@ public abstract class Resource {
 	/**
 	 * @return the provider
 	 */
-	public Provider getProvider() {
+	public MyProvider getProvider() {
 		return provider;
 	}
 
@@ -91,7 +91,7 @@ public abstract class Resource {
 	 *            the provider to set
 	 * @throws BadAttributeValueExpException
 	 */
-	public void setProvider(Provider provider)
+	public void setProvider(MyProvider provider)
 			throws BadAttributeValueExpException {
 		if (provider == null)
 			throw new BadAttributeValueExpException("attribut non renseigné");

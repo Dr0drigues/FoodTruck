@@ -16,7 +16,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class IngredientTest {
 
 	@InjectMocks
-	private final Provider provider = Mockito.mock(Provider.class);
+	private final MyProvider provider = Mockito.mock(MyProvider.class);
 
 	private Resource ingredientOk = null;
 

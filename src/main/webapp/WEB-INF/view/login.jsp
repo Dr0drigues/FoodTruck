@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <jsp:include page="WEB-INF/view/include/header.jsp"/>
+    <jsp:include page="include/header.jsp"/>
 </head>
 <body>
 
@@ -45,7 +45,7 @@
 </div>
 
 <footer>
-    <jsp:include page="WEB-INF/view/include/footer.jsp"/>
+    <jsp:include page="include/footer.jsp"/>
 </footer>
 
 </body>

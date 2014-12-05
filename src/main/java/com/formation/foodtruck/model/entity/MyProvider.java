@@ -7,19 +7,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Provider {
+public class MyProvider {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	private String name;
 
-	public Provider() {
+	public MyProvider() {
 		super();
 
 	}
 
-	public Provider(String name) throws BadAttributeValueExpException {
+	public MyProvider(String name) throws BadAttributeValueExpException {
 		super();
 		if (name == null || name.isEmpty())
 			throw new BadAttributeValueExpException("attribut non renseigné");

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.formation.foodtruck.model.dao.ArticleDAO;
 import com.formation.foodtruck.model.entity.Article;
+import com.formation.foodtruck.model.entity.Drink;
 
 @Repository
 public class ArticleDAOImplJPA implements ArticleDAO {
@@ -31,7 +32,7 @@ public class ArticleDAOImplJPA implements ArticleDAO {
 		if (article == null) {
 			return false;
 		}
-		entityManager.persist(article);
+		entityManager.persist((Drink)article);
 		return true;
 	}
 

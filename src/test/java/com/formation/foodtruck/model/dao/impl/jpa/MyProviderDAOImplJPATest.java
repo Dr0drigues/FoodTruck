@@ -17,18 +17,18 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import com.formation.foodtruck.model.dao.ProviderDAO;
+import com.formation.foodtruck.model.dao.MyProviderDAO;
 import com.formation.foodtruck.model.entity.Command;
-import com.formation.foodtruck.model.entity.Provider;
+import com.formation.foodtruck.model.entity.MyProvider;
 
-public class ProviderDAOImplJPATest {
+public class MyProviderDAOImplJPATest {
 
 
 	@Mock
 	private final EntityManager entityManager = Mockito.mock(EntityManager.class);
 
 	@InjectMocks
-	private final ProviderDAO providerDAO = new ProviderDAOImplJPA();
+	private final MyProviderDAO providerDAO = new MyProviderDAOImplJPA();
 
 	/**
 	 * Sets the up.
@@ -61,22 +61,22 @@ public class ProviderDAOImplJPATest {
 
 		try {
 			// Fournisseur OK
-			final Provider providerCreate1 = new Provider("Fournisseur");
+			final MyProvider providerCreate1 = new MyProvider("Fournisseur");
 			final Boolean insert1 = providerDAO.create(providerCreate1);
 			Assert.assertTrue(insert1);
-			final Provider providerCreate2 = new Provider("Fournisseur");
+			final MyProvider providerCreate2 = new MyProvider("Fournisseur");
 			final Boolean insert2 = providerDAO.create(providerCreate2);
 			Assert.assertTrue(insert2);
 
-			Mockito.when(entityManager.find(Provider.class, 1)).thenReturn(
+			Mockito.when(entityManager.find(MyProvider.class, 1)).thenReturn(
 					providerCreate1);
 
-			final Provider providerFound = providerDAO.find(1);
+			final MyProvider providerFound = providerDAO.find(1);
 			Assert.assertNotNull(providerFound);
 
 
 			// Commande null
-			final Provider providerNull = null;
+			final MyProvider providerNull = null;
 			final Boolean insert3 = providerDAO.create(providerNull);
 			Assert.assertFalse(insert3);
 
@@ -93,19 +93,19 @@ public class ProviderDAOImplJPATest {
 	@Test
 	public void testDelete() throws BadAttributeValueExpException {
 		try {
-			final Provider providerCreate1 = new Provider("Fournisseur");
-			final Provider providerCreate2 = new Provider("Fournisseur");
-			final Provider providerCreate3 = new Provider("Fournisseur");
+			final MyProvider providerCreate1 = new MyProvider("Fournisseur");
+			final MyProvider providerCreate2 = new MyProvider("Fournisseur");
+			final MyProvider providerCreate3 = new MyProvider("Fournisseur");
 			providerDAO.create(providerCreate1);
 			providerDAO.create(providerCreate2);
 			providerDAO.create(providerCreate3);
 
 			final Boolean delete1 = providerDAO.delete(providerCreate2);
 			Assert.assertTrue(delete1);
-			final Provider providerDeleted = providerDAO.find(2);
+			final MyProvider providerDeleted = providerDAO.find(2);
 			Assert.assertNull(providerDeleted);
 
-			final Provider providerNotCreated = null;
+			final MyProvider providerNotCreated = null;
 			final Boolean delete2 = providerDAO.delete(providerNotCreated);
 			Assert.assertFalse(delete2);
 
@@ -126,19 +126,19 @@ public class ProviderDAOImplJPATest {
 	@Test
 	public void testUpdate() throws SQLException, BadAttributeValueExpException {
 		// Fournisseur OK
-		final Provider providerCreate1 = new Provider("Fournisseur");
+		final MyProvider providerCreate1 = new MyProvider("Fournisseur");
 		providerDAO.create(providerCreate1);
 		final Boolean update1 = providerDAO.update(providerCreate1);
 		Assert.assertTrue(update1);
 
 		// Fournisseur avec un nom modifier
-		final Provider providerCreateAndSetName = new Provider("Fournisseur");
+		final MyProvider providerCreateAndSetName = new MyProvider("Fournisseur");
 		providerCreateAndSetName.setName("Provider");
 		final Boolean update2 = providerDAO.update(providerCreateAndSetName);
 		Assert.assertTrue(update2);
 
 		// Commande null
-		final Provider providerNull = null;
+		final MyProvider providerNull = null;
 		final Boolean update4 = providerDAO.update(providerNull);
 		Assert.assertFalse(update4);
 
@@ -152,23 +152,23 @@ public class ProviderDAOImplJPATest {
 	@Test
 	public void testFind() throws BadAttributeValueExpException {
 		try {
-			final Provider providerCreate1 = new Provider("Fournisseur");
-			final Provider providerCreate2 = new Provider("Fournisseur");
-			final Provider providerCreate3 = new Provider("Fournisseur");
+			final MyProvider providerCreate1 = new MyProvider("Fournisseur");
+			final MyProvider providerCreate2 = new MyProvider("Fournisseur");
+			final MyProvider providerCreate3 = new MyProvider("Fournisseur");
 			providerDAO.create(providerCreate1);
 			providerDAO.create(providerCreate2);
 			providerDAO.create(providerCreate3);
 
-			Mockito.when(entityManager.find(Provider.class, 2)).thenReturn(
+			Mockito.when(entityManager.find(MyProvider.class, 2)).thenReturn(
 					providerCreate2);
 
-			final Provider providerFound = providerDAO.find(2);
+			final MyProvider providerFound = providerDAO.find(2);
 			Assert.assertNotNull(providerFound);
 			Assert.assertEquals(providerFound, providerCreate2);
 
 			Mockito.when(entityManager.find(Command.class, 4)).thenReturn(null);
 
-			final Provider ProviderNotFound = providerDAO.find(4);
+			final MyProvider ProviderNotFound = providerDAO.find(4);
 			Assert.assertNull(ProviderNotFound);
 
 
