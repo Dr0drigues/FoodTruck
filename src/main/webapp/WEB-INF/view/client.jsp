@@ -12,7 +12,8 @@
 
 <body>
 	
-	<!-- <jsp:include page="include/menu.jsp"></jsp:include> -->
+	<jsp:include page="include/menu.jsp"></jsp:include>
+	<div id="page-wrapper">
 	
 	<!-- For Each en JSTL -->
 	<table class="table table-striped table-hover" id="tableClient dataTable no-footer">
@@ -88,7 +89,9 @@
 	</div>
 
 
+</div>
 </body>
+
 <footer>
 	<jsp:include page="include/footer.jsp" />
 </footer>

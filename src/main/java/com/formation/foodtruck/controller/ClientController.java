@@ -79,8 +79,8 @@ public class ClientController {
 	public String handleFormModifClient(
 			@ModelAttribute("clientUpdate") Client client,
 			@PathVariable("clientId") Integer clientId, ModelMap model)
-			throws BadAttributeValueExpException {
-init();
+					throws BadAttributeValueExpException {
+		this.init();
 		if (client != null && client.getLastName() != null
 
 				&& !client.getLastName().isEmpty() && client.getFirstName() != null
