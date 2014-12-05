@@ -9,9 +9,12 @@ import com.formation.foodtruck.model.manager.managers.ResourceManager;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import javax.management.BadAttributeValueExpException;
 import java.sql.SQLException;
@@ -22,11 +25,13 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 
+@RunWith(MockitoJUnitRunner.class)
 public class ResourceManagerImplTest {
 
-    private ResourceManager resourceManager;
-
     @InjectMocks
+    private ResourceManager resourceManager = Mockito.mock(ResourceManagerImpl.class);
+
+    @Mock
     private ResourceDAO resourceDAO = Mockito.mock(ResourceDAO.class);
 
     @Before

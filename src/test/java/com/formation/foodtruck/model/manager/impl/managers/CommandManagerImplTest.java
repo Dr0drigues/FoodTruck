@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -26,9 +27,10 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class CommandManagerImplTest {
 
-    private CommandManager commandManager;
-
     @InjectMocks
+    private CommandManager commandManager = Mockito.mock(CommandManagerImpl.class);
+
+    @Mock
     private CommandDAO commandDAO = Mockito.mock(CommandDAO.class);
 
     @Before

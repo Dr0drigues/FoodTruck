@@ -1,18 +1,11 @@
 <%--
   Created by IntelliJ IDEA.
   User: admin
-  Date: 01/12/2014
-  Time: 11:43
+  Date: 05/12/2014
+  Time: 09:37
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
-<html>
-<head>
-    <jsp:include page="WEB-INF/view/include/header.jsp"/>
-</head>
-<body>
-
 <div id="wrapper">
 
     <!-- Navigation -->
@@ -237,7 +230,7 @@
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="WEB-INF/view/login.jsp"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <li><a href="WEB-INF/view/include/login.jsp"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                     </li>
                 </ul>
                 <!-- /.dropdown-user -->
@@ -340,7 +333,7 @@
                                 <a href="blank.html">Blank Page</a>
                             </li>
                             <li>
-                                <a href="WEB-INF/view/login.jsp">Login Page</a>
+                                <a href="WEB-INF/view/include/login.jsp">Login Page</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -352,10 +345,3 @@
         <!-- /.navbar-static-side -->
     </nav>
 </div>
-
-<footer>
-    <jsp:include page="WEB-INF/view/include/footer.jsp"/>
-</footer>
-
-</body>
-</html>
